@@ -30,6 +30,7 @@ gem 'devise'
 gem 'haml'
 gem 'bootstrap'
 gem 'responders'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 
 
