@@ -17,3 +17,5 @@
         %td= link_to 'Показать', post
         %td= link_to 'Редактировать', edit_post_path(post)
         %td= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
+%br/
+= link_to 'Новый пост', new_post_path
