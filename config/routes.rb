@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/index'
+  root to: 'posts#index', as: 'post'
   resources :comments
   resources :posts
   devise_for :users
