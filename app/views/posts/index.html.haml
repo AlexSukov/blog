@@ -1,6 +1,8 @@
 %p#notice= notice
+
 %h1 БЛОГ
-%table
+= link_to 'Новый пост', new_post_path
+%table.table
   %thead
     %tr
       %th Название
@@ -12,9 +14,8 @@
       %tr
         %td= post.title
         %td= post.body
-        %td= post.user
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post)
-        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'Новый пост', new_post_path
+        %td= post.user.email
+        %td= link_to 'Показать', post
+        %td= link_to 'Выход', edit_post_path(post)
+        %td= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
+
