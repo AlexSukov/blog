@@ -1,0 +1,5 @@
+.container
+  %h1= 'Editing Post'
+  = render 'form', post: @post
+  = link_to 'Show', @post, class: 'btn btn-primary mt-10'
+  = link_to 'Back', posts_path, class: 'btn btn-primary mt-10'
