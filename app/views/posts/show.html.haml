@@ -1,0 +1,12 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @post.title
+%p
+  %strong Body:
+  = @post.body
+%p
+  %strong User:
+  = @post.user
+= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary mt-10'
+= link_to 'Back', posts_path, class: 'btn btn-primary mt-10'
