@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_author, only: :create
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   respond_to :json, :html
 
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = @post.comments.new
   end
 
   def new
@@ -42,5 +43,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :user_id)
+  end
+
+  def set_author
+    @author = User.find_by(email: 'sashasukov@mail.ru')
   end
 end
