@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  respond_to :json, :html
+  respond_to :html
   # GET /comments
   # GET /comments.json
   def index
