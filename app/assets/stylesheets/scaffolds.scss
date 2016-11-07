@@ -1,89 +1,46 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
+.registration_block {
+  margin-top:50px;
+  border-color: black;
+  border-width: thin;
+  border-style: solid;;
+  border-radius: 5px;
+  width: 50%;
+  padding: 20px;
+  margin-left:auto;
+  margin-right:auto;
 }
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
+.inline {
+  display: inline;
 }
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+header {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e5e5e5;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(229, 229, 229);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
-a {
-  color: #000;
-
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+.header-nav-link {
+    padding: 4px 8px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #333;
 }
-
-th {
-  padding-bottom: 5px;
+.pull-right {
+  float: right !important;
 }
-
-td {
-  padding-bottom: 7px;
-  padding-left: 5px;
-  padding-right: 5px;
+.mb-0 {
+  margin-bottom: 0px;
 }
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px;
-  }
-}
-
-#notice {
-  color: green;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
+.site-footer {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
     font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-label {
-  display: block;
+    line-height: 1.5;
+    color: #767676;
+    border-top: 1px solid #eee;
 }
