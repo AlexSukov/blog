@@ -1,6 +1,5 @@
 $ ->
   $('.create_comment').on 'click', ->
-    debugger
     post_id = $('#post_id').val()
     comment_body = $('#comment_body').val()
     $.ajax
