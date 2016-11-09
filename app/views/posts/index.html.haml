@@ -4,8 +4,9 @@
     %h1.test= 'БЛОГ'
     .test= link_to 'Новый пост', new_post_path
     - @posts. each do |post|
-      .post.col-xs-12.col-sm-6.col-md-4.col-lg-3.test
-        %table.table
+      .col-xs-12.col-sm-6.col-md-4.col-lg-3
+        #triangle-top
+        %table.table.post
           %tr
             %th{colspan: 3}= 'Название поста'
           %tr

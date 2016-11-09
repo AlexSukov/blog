@@ -7,9 +7,30 @@
 #header-content {
   text-align: right;
 }
-.post {
-  margin-top: 15px;
-}
+
 .icon   {
   background-color: blue;
+}
+
+.post{
+  background-color: yellow;
+}
+
+#triangle-bottom{border: 20px solid transparent;
+  border-left: 20px solid green;
+  border-top: 20px solid green;}
+
+#triangle-top{
+  margin-top: 15px;
+	width: 100%;
+  height: 30%;
+	border-bottom: 5rem solid red;
+	border-left:  10rem solid transparent;
+}
+.col-xs-12#triangle-top{
+  margin-top: 15px;
+	width: 100%;
+  height: 30%;
+	border-bottom: 5vw solid red;
+	border-left: 50rem solid transparent;
 }
