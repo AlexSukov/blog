@@ -1,19 +1,20 @@
 %p#notice= notice
-%h1= 'БЛОГ'
-= link_to 'Новый пост', new_post_path
-%table.table
-  %thead
-    %tr
-      %th= 'Название'
-      %th= 'Тело поста'
-      %th= 'Пользователь'
-      %th{:colspan => "3"}
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.body
-        %td= post.user.email
-        %td= link_to 'Показать', post
-        %td= link_to 'Редактировать', edit_post_path(post)
-        %td= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' }
+.row
+  .col-md-12
+    %h1.test= 'БЛОГ'
+    .test= link_to 'Новый пост', new_post_path
+    - @posts. each do |post|
+      .post.col-xs-12.col-sm-6.col-md-4.col-lg-3.test
+        %table.table
+          %tr
+            %th{colspan: 3}= 'Название поста'
+          %tr
+            %td{colspan: 3}= post.title
+          %tr
+            %th{colspan: 3}= 'Тело поста'
+          %tr
+            %td{colspan: 3}= post.body
+          %tr
+            %td= link_to image_tag("show.png", border: 0, size: 20), post, class: 'icon'
+            %td= link_to image_tag("edit.png", border: 0, size: 20), edit_post_path(post), class: 'icon'
+            %td= link_to image_tag("delete.png", border: 0, size: 20), post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'icon'
