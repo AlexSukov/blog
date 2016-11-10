@@ -2,19 +2,27 @@
 .row
   .col-md-12
     %h1.test= 'БЛОГ'
-    .test= link_to 'Новый пост', new_post_path
+    .col-xs-12.col-sm-6.col-md-4.col-lg-3
+      #svg-container
+        %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
+          %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
+      %table.table.post
+        %tr
+          %td{colspan: 3, rowspan: 4}= link_to image_tag("plus.png", border: 0, size: 120), new_post_path
+      #svg-container
+        %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
+          %polygon{:fill => "white", :points => "100,0 0,100 0,0"}
+    - @posts.order! 'created_at DESC'
     - @posts. each do |post|
       .col-xs-12.col-sm-6.col-md-4.col-lg-3
         #svg-container
           %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "violet", :points => "0,100 100,0 100,100"}
+            %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
         %table.table.post
           %tr
-            %th{colspan: 3}= 'Название поста'
+            %th.title{colspan: 3}= link_to post.title, post
           %tr
-            %td{colspan: 3}= post.title
-          %tr
-            %th{colspan: 3}= 'Тело поста'
+            %td.time{colspan: 3}= post.created_at.strftime("%e, %B %Y %X")
           %tr
             %td{colspan: 3}= post.body
           %tr
@@ -23,4 +31,4 @@
             %td= link_to image_tag("delete.png", border: 0, size: 20), post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'icon'
         #svg-container
           %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "violet", :points => "100,0 0,100 0,0"}
+            %polygon{:fill => "white", :points => "100,0 0,100 0,0"}
