@@ -5,7 +5,9 @@
     .test= link_to 'Новый пост', new_post_path
     - @posts. each do |post|
       .col-xs-12.col-sm-6.col-md-4.col-lg-3
-        #triangle-top
+        #svg-container
+          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
+            %polygon{:fill => "violet", :points => "0,100 100,0 100,100"}
         %table.table.post
           %tr
             %th{colspan: 3}= 'Название поста'
@@ -19,3 +21,6 @@
             %td= link_to image_tag("show.png", border: 0, size: 20), post, class: 'icon'
             %td= link_to image_tag("edit.png", border: 0, size: 20), edit_post_path(post), class: 'icon'
             %td= link_to image_tag("delete.png", border: 0, size: 20), post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'icon'
+        #svg-container
+          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
+            %polygon{:fill => "violet", :points => "100,0 0,100 0,0"}
