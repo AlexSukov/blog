@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.create(comment_params)
-    respond_with(@comment, location: @post)
+    respond_with(@post, @comment)
   end
 
   def update

@@ -6,6 +6,6 @@ $ ->
       type: 'POST'
       url: "/posts/#{post_id}/comments"
       data: { comment: { body: comment_body } }
-      datatype: "json"
+      dataType: "json"
       success: (data) ->
         $('.comments').append("<a href='' class='list-group-item'>#{comment_body}</a>")
