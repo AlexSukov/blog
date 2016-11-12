@@ -31,7 +31,6 @@ gem 'haml'
 gem 'bootstrap'
 gem 'responders'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
-
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 
