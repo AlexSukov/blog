@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
-  respond_to :json, only: :create
+  respond_to :json, only: [:create, :destroy]
 
   def show
   end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    respond_with(@comment, location: @post)
+    respond_with(@post, @comment)
   end
 
   private
