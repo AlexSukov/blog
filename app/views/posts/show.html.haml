@@ -15,9 +15,9 @@
     - if comment.body?
       %a.list-group-item
         = comment.body
-        %input#comment_id{ value: comment.id, hidden: true }
-        %button.btn.btn-primary.mt-10.delete_comment= 'Удалить комментарий'
-        %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать комментарий'
+        %input.comment_id{ value: comment.id, hidden: true }
+        %button.btn.btn-primary.mt-10.delete_comment= 'Удалить'
+        %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать'
 .row
   .col-md-6{"data-no-turbolink" => ""}
     %textarea.form-control#comment_body

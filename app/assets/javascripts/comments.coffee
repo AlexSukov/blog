@@ -15,7 +15,7 @@ $ ->
   $('.delete_comment').on 'click', ->
     $button = $(this)
     post_id = $('#post_id').val()
-    comment_id = $('#comment_id').val()
+    comment_id = $(this).parent().find('.comment_id').val()
     $.ajax
       type: 'DELETE'
       url: "/posts/#{post_id}/comments/#{comment_id}"
