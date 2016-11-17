@@ -8,7 +8,10 @@ $ ->
       data: { comment: { body: comment_body } }
       dataType: "json"
       success: (data) ->
-        $('.comments').append("<a class='list-group-item'>#{comment_body}</a>")
+        $('.comments').append("<a class='list-group-item'>#{comment_body}
+        <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
+        <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
+        </a>")
         $('#comment_body').val('')
       error: (data) ->
         alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
