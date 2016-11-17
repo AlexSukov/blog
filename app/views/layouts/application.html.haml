@@ -6,7 +6,6 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-<<<<<<< HEAD
     %header
       .container
         %ul.list-unstyled.inline.pull-right.mb-0
@@ -17,11 +16,6 @@
             %li.inline= link_to 'Log in', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Sign up', new_user_registration_path, class: 'btn btn-link header-nav-link'
     %main.container
-      #header.row
-        #search.col-md-3
-          .test test#SEARCH
-        #header-content.col-md-9
-          .test test#LOG_IN and LOG_OUT
       = yield
     %footer.container
       .site-footer
