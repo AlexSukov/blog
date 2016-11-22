@@ -1,3 +1,30 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.create_comment').on 'click', ->
+    post_id = $('#post_id').val()
+    comment_body = $('#comment_body').val()
+    $.ajax
+      type: 'POST'
+      url: "/posts/#{post_id}/comments"
+      data: { comment: { body: comment_body } }
+      dataType: "json"
+      success: (data) ->
+        $('.comments').append("<a class='list-group-item'>#{comment_body}
+        <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
+        <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
+        </a>")
+        $('#comment_body').val('')
+      error: (data) ->
+        alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
+  $('.delete_comment').on 'click', ->
+    $button = $(this)
+    post_id = $('#post_id').val()
+    comment_id = $(this).parent().find('.comment_id').val()
+    $.ajax
+      type: 'DELETE'
+      url: "/posts/#{post_id}/comments/#{comment_id}"
+      data: { comment: { id: comment_id } }
+      dataType: "json"
+      success: (data) ->
+        $button.parent().remove()
+      error: (data) ->
+        alert('Произошла непредвиденная ошибка.')

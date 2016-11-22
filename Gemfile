@@ -32,6 +32,7 @@ gem 'bootstrap'
 gem 'responders'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'jquery-turbolinks'
 
 
 # Use Capistrano for deployment
@@ -39,11 +40,16 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry-rails'
+  gem 'pry-nav', require: false
+  gem 'better_errors'
   gem 'byebug', platform: :mri
+  gem 'binding_of_caller'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+
   gem 'web-console'
 end
 
