@@ -1,14 +1,14 @@
 %p#notice= notice
 .row
   .col-md-12
-    %h1.test= 'БЛОГ'
     .col-xs-12.col-sm-6.col-md-4.col-lg-3
       #svg-container
         %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
           %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
-      %table.table.post
-        %tr
-          %td{colspan: 3, rowspan: 4}= link_to image_tag("plus.png", border: 0, size: 120), new_post_path
+      = link_to new_post_path do
+        %table.table.post
+          %tr
+            %td.plus{colspan: 3, rowspan: 4}
       #svg-container
         %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
           %polygon{:fill => "white", :points => "100,0 0,100 0,0"}
@@ -26,9 +26,15 @@
           %tr
             %td{colspan: 3}= post.body
           %tr
-            %td= link_to image_tag("show.png", border: 0, size: 20), post, class: 'icon'
-            %td= link_to image_tag("edit.png", border: 0, size: 20), edit_post_path(post), class: 'icon'
-            %td= link_to image_tag("delete.png", border: 0, size: 20), post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'icon'
+            %td
+              =link_to post, class: "btn btn-default ico" do
+                %i.glyphicon.glyphicon-eye-open.icon{"aria-hidden" => "true"}
+            %td
+              =link_to edit_post_path(post), class: "btn btn-default ico" do
+                %i.glyphicon.glyphicon-pencil.icon{"aria-hidden" => "true"}
+            %td
+              =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-default ico" do
+                %i.glyphicon.glyphicon-trash.icon{"aria-hidden" => "true"}
         #svg-container
           %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
             %polygon{:fill => "white", :points => "100,0 0,100 0,0"}

@@ -18,21 +18,31 @@ header {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: rgb(229, 229, 229);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
+
 .header-nav-link {
     padding: 4px 8px;
     font-size: 13px;
     font-weight: 600;
     line-height: 20px;
-    color: #333;
+    color: red;
+    transition: color 1s;
+}
+.header-nav-link:visited{
+  color: red;
+}
+.header-nav-link:hover{
+  color: purple;
+  text-decoration: none;
 }
 .pull-right {
   float: right !important;
 }
 .mb-0 {
   margin-bottom: 0px;
+  margin-top: 0px;
 }
 .site-footer {
     position: relative;
@@ -41,12 +51,13 @@ header {
     margin-top: 40px;
 }
 body {
-  background-color: #1c1c1c;
+  background-color: white;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+  margin-top: 0px;
 }
 
 p, ol, ul, td {
@@ -129,5 +140,13 @@ div {
 .mt-10 {
   margin-top: 10px;
 }
-#wrapper {
+
+main {
+  background-color: black;
+}
+.no-padding{
+  padding: 0;
+}
+.bg-white{
+  background-color: white;
 }
