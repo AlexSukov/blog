@@ -4,20 +4,20 @@
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
       #svg-container
         %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-          %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
+          %polygon{:fill => "white", :points => "0,100 30,0 100,0 100,100"}
       = link_to new_post_path do
         %table.table.post
           %tr
             %td.plus{colspan: 3, rowspan: 4}
-      #svg-container
+      #svg-container.margin-bottom
         %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-          %polygon{:fill => "white", :points => "100,0 0,100 0,0"}
+          %polygon{:fill => "white", :points => "100,0 70,100 0,100 0,0"}
     - @posts.order! 'created_at DESC'
     - @posts. each do |post|
       .col-xs-12.col-sm-6.col-md-4.col-lg-4
         #svg-container
           %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
+            %polygon{:fill => "white", :points => "0,100 30,0 100,0 100,100"}
         %table.table.post
           %tr
             %th.title{colspan: 3}= link_to post.title, post
@@ -35,6 +35,6 @@
             %td
               =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-default ico" do
                 %i.glyphicon.glyphicon-trash.icon{"aria-hidden" => "true"}
-        #svg-container
+        #svg-container.margin-bottom
           %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "white", :points => "100,0 0,100 0,0"}
+            %polygon{:fill => "white", :points => "100,0 70,100 0,100 0,0"}

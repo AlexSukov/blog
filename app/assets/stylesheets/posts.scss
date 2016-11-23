@@ -8,8 +8,8 @@
 
 .plus {
   background: url(plus.png);
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -17,8 +17,8 @@
 }
 .plus:hover {
   background: url(plus_hover.png);
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -49,6 +49,9 @@
 .svg-block{
   width: 100%;
   height: 100%;
+}
+.margin-bottom{
+  margin-bottom: 20px;
 }
 
 table.table.post{
