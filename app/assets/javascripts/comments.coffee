@@ -9,15 +9,15 @@ $ ->
       dataType: "json"
       success: (data) ->
         $('.comments').append("<a class='list-group-item'>#{comment_body}
-        <input class='comment_id' value="" hidden='true'></input>
+        <input class='comment_id' type='hidden' value='#{data.id}'>
         <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
         <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
         </a>")
-        debugger
         $('#comment_body').val('')
       error: (data) ->
         alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
   $('.delete_comment').on 'click', ->
+    debugger
     $button = $(this)
     post_id = $('#post_id').val()
     comment_id = $(this).parent().find('.comment_id').val()

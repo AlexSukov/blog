@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update(comment_params)
-    respond_with(@comment, location: @post)
+    respond_with(@post, @comment)
   end
 
   def destroy
