@@ -31,17 +31,18 @@
   text-align: right;
 }
 
-.ico{
-  border: 0;
-}
 .icon{
-    color: red;
-    transition: color 1s;
-    text-decoration: none;
-    background-color: none;}
+  border: 0;
+  color: red;
+  transition: all 0.5s;
+  text-decoration: none;
+}
 .icon:hover{
-      color: purple;
-          }
+  color: purple;
+  transform: scale(1.5, 1.5);
+  background-color: transparent;
+}
+
 #svg-container{
   width: 100%;
   height: 36px;
@@ -77,5 +78,19 @@ table.table.post{
     font-size: 0.5rem;
     color: blue;
     padding: 0;
+  }
+}
+
+.read{
+  fill: white;
+  transition: all 1s;
+  text{
+    fill: black;
+  }
+}
+.read:hover{
+  fill: purple;
+  text{
+    fill: white;
   }
 }

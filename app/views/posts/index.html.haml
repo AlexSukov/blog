@@ -27,14 +27,13 @@
             %td{colspan: 3}= post.body
           %tr
             %td
-              =link_to post, class: "btn btn-default ico" do
-                %i.glyphicon.glyphicon-eye-open.icon{"aria-hidden" => "true"}
+              =link_to edit_post_path(post), class: "btn btn-default icon" do
+                %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
             %td
-              =link_to edit_post_path(post), class: "btn btn-default ico" do
-                %i.glyphicon.glyphicon-pencil.icon{"aria-hidden" => "true"}
-            %td
-              =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-default ico" do
-                %i.glyphicon.glyphicon-trash.icon{"aria-hidden" => "true"}
-        #svg-container.margin-bottom
-          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "white", :points => "100,0 70,100 0,100 0,0"}
+              =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-default icon" do
+                %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+        = link_to post, class: "read" do
+          #svg-container.margin-bottom
+            %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
+              %polygon{:points => "100,0 70,100 0,100 0,0"}
+              %text{"font-family" => "Verdana", "font-size" => "5rem", "textLength" => "60", "lengthAdjust" => "spacingAndGlyphs", :x => "5", :y => "60"} Продолжить чтение
