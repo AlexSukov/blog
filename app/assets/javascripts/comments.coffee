@@ -1,5 +1,5 @@
 $ ->
-  $('.create_comment').on 'click', ->
+  $(document).on 'click', '.create_comment', ->
     post_id = $('#post_id').val()
     comment_body = $('#comment_body').val()
     $.ajax
@@ -16,8 +16,7 @@ $ ->
         $('#comment_body').val('')
       error: (data) ->
         alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
-  $('.delete_comment').on 'click', ->
-    debugger
+  $(document).on 'click', '.delete_comment', ->
     $button = $(this)
     post_id = $('#post_id').val()
     comment_id = $(this).parent().find('.comment_id').val()
