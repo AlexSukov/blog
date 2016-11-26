@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    authorize @comment
   end
 
   def create
@@ -16,11 +17,13 @@ class CommentsController < ApplicationController
   end
 
   def update
+    authorize @comment
     @comment.update(comment_params)
     respond_with(@post, @comment)
   end
 
   def destroy
+    authorize @comment
     @comment.destroy
     respond_with(@post, @comment)
   end

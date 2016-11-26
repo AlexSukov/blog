@@ -25,12 +25,25 @@
         %tr
           %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
         %tr
-          %td.no-border
-            =link_to edit_post_path(post), class: 'btn btn-default icon' do
-              %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
-          %td.no-border
-            =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
-              %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
+<<<<<<< HEAD
+          - if policy(post).update?
+            %td.no-border
+              =link_to edit_post_path(post), class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
+          - if policy(post).destroy?
+            %td.no-border
+              =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
+=======
+          - if policy(post).update?
+            %td
+              =link_to edit_post_path(post), class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
+          - if policy(post).destroy?
+            %td
+              =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
+>>>>>>> #11 Added rights for post
       = link_to post do
         #svg-container.margin-bottom
           %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}

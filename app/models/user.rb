@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   attr_accessor :login
+  enum role: [:user, :moderator, :admin]
   has_many :posts
   has_many :comments
   mount_uploader :avatar, AvatarUploader
