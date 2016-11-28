@@ -24,9 +24,6 @@
   background-position: 50% 50%;
 }
 
-.test {
-  background-color: red;
-}
 #header-content {
   text-align: right;
 }
@@ -60,10 +57,10 @@ table.table.post{
   background-color: white;
   margin-bottom: 0;
   text-align: center;
-  td{ border-color: white;}
+  td{ border-color: black;}
   th{ font-size: 2rem;
       text-align: center;
-      border-color: white;
+      border-color: red;
       a{
         color: red;
         transition: color 1s;
