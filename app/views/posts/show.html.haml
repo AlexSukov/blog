@@ -19,7 +19,7 @@
         %button.btn.btn-primary.mt-10.delete_comment= 'Удалить'
         %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать'
 .row
-  .col-md-6{"data-no-turbolink" => ""}
+  .col-md-6
     %textarea.form-control#comment_body
     %input#post_id{ value: @post.id, hidden: true }
     %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
