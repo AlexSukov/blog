@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_author, only: :create
+  before_action :set_author, only: :new
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   respond_to :json, :html
 
   def index
-    respond_with(@posts = Post.all)
+    respond_with(@posts = Post.all.order('created_at DESC'))
   end
 
   def show
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
   end
 
   def set_author
-    @author = User.find_by(email: 'sashasukov@mail.ru')
+    @author = current_user
   end
 end
