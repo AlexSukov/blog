@@ -1,6 +1,37 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table.table.post {
+  border: 0px;
+  background-color: white;
+  margin-bottom: 0;
+  text-align: center;
+  td { border: 0;}
+  th.title {
+    font-size: 2rem;
+    text-align: center;
+    border: 0;
+    a {
+      color: red;
+      transition: color 1s;
+      text-decoration: none;
+      background-color: none;
+    &:hover {
+        color: purple;
+            }
+      }
+  }
+  td.time {
+    font-size: 1rem;
+    color: blue;
+    padding: 0;
+  }
+  td.text {
+      height:72px;
+      max-height: 72px;
+    }
+}
+
 .head {
   background: url(background.jpg);
   color: white;
@@ -8,86 +39,64 @@
 
 .plus {
   background: url(plus.png);
-  width: 130px;
-  height: 130px;
+  width: 168px;
+  height: 168px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   transition: all 0.5s ease;
 }
+
 .plus:hover {
   background: url(plus_hover.png);
-  width: 130px;
-  height: 130px;
+  width: 168px;
+  height: 168px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
-#header-content {
-  text-align: right;
+.svg-block {
+  width: 100%;
+  height: 100%;
 }
 
-.icon{
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.read {
+  fill: white;
+  transition: all 1s;
+  text {
+    fill: black;
+  }
+}
+
+.read:hover {
+  fill: purple;
+  text {
+    fill: white;
+  }
+}
+
+.icon {
   border: 0;
   color: red;
   transition: all 0.5s;
   text-decoration: none;
 }
-.icon:hover{
+.icon:hover {
   color: purple;
   transform: scale(1.5, 1.5);
   background-color: transparent;
 }
 
-#svg-container{
+#svg-container {
   width: 100%;
   height: 36px;
 }
-.svg-block{
-  width: 100%;
-  height: 100%;
-}
-.margin-bottom{
-  margin-bottom: 20px;
-}
 
-table.table.post{
-  border: 0px;
-  background-color: white;
-  margin-bottom: 0;
-  text-align: center;
-  td{ border-color: black;}
-  th{ font-size: 2rem;
-      text-align: center;
-      border-color: red;
-      a{
-        color: red;
-        transition: color 1s;
-        text-decoration: none;
-        background-color: none;
-      &:hover{
-          color: purple;
-              }
-        }
-    }
-  td.time{
-    font-size: 0.5rem;
-    color: blue;
-    padding: 0;
-  }
-}
-
-.read{
-  fill: white;
-  transition: all 1s;
-  text{
-    fill: black;
-  }
-}
-.read:hover{
-  fill: purple;
-  text{
-    fill: white;
-  }
+#header-content {
+  text-align: right;
 }

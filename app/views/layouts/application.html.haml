@@ -18,19 +18,19 @@
       .row.head
         %h1= 'БЛОГ'
         #svg-container
-          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "white", :points => "0,100 100,0 100,100"}
+          %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
+            %polygon{points: '0,100 100,0 100,100'}
     %main.container
       .row.no-padding
         #svg-container.bg-white
-          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "black", :points => "0,100 100,0 100,100"}
+          %svg.black{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
+            %polygon{points: '0,100 100,0 100,100'}
       = yield
     %footer.container
       .row
         #svg-container
-          %svg{:height => "100%", :width => "100%", :viewbox => "0 0 100 100", :preserveAspectRatio => "none"}
-            %polygon{:fill => "black", :points => "0,100 100,0 0,0"}
+          %svg.black{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
+            %polygon{points: '0,100 100,0 0,0'}
       .site-footer
         %ul.list-unstyled.inline
           %li.inline
