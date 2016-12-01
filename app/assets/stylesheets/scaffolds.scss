@@ -1,8 +1,4 @@
 header {
-  border-bottom: 1px solid #e5e5e5;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: rgb(229, 229, 229);
   background-color: #202020;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -41,11 +37,14 @@ pre {
 }
 
 a {
-  color: #000;
+  color: red;
+  transition: color 1s;
 
+  background-color: none;
   &:hover {
-    color: #fff;
-  }
+    color: purple;
+    text-decoration: none;
+    }
 }
 
 th {
@@ -171,4 +170,8 @@ text {
     color: #767676;
     border-top: 1px solid #eee;
   }
+}
+
+#header-content {
+  text-align: right;
 }

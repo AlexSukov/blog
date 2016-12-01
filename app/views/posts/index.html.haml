@@ -11,7 +11,6 @@
     #svg-container.margin-bottom
       %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
         %polygon{points: '100,0 70,100 0,100 0,0'}
-  - @posts.order! 'created_at DESC'
   - @posts. each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
       #svg-container
@@ -23,14 +22,14 @@
         %tr
           %td.time{colspan: 3}= post.created_at.strftime("%e, %B %Y %X")
         %tr
-          %td.text{colspan: 3}= truncate(post.body, :length => 100)
+          %td.text{colspan: 3}= truncate(post.body, length: 100)
         %tr
           %td
             =link_to edit_post_path(post), class: 'btn btn-default icon' do
-              %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
+              %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
           %td
             =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
-              %span.glyphicon.glyphicon-trash{"aria-hidden" => "true"}
+              %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
       = link_to post do
         #svg-container.margin-bottom
           %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
