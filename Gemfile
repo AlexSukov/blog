@@ -28,10 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'haml'
-gem 'bootstrap'
+#gem 'bootstrap'
 gem 'responders'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'bootstrap-sass'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
