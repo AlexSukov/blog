@@ -2,8 +2,8 @@
   %h2= 'Log in'
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group
-      = f.label :email,  class:'control-label'
-      = f.email_field :email, autofocus: true, class: 'form-control'
+      = f.label :login,  class:'control-label'
+      = f.text_field :login, autofocus: true, class: 'form-control'
     .form-group
       = f.label :password, class:'control-label'
       = f.password_field :password, autocomplete: "off", class: 'form-control'

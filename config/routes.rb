@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     resources :comments, except: ['index','new']
   end
   devise_for :users
+  match '/users',   to: 'users#index',   via: 'get'
 end
