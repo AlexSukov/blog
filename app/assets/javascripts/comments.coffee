@@ -36,18 +36,17 @@ $ ->
   $(document).on 'click', '.update_comment', ->
     $button = $(this)
     post_id = $('#post_id').val()
-    comment_id = $(this).parent().find('.comment_id').val()
-    updated_comment_body = $(this).parent().find('.body_edit').val()
+    $comment_id = $(this).parent().find('.comment_id').val()
+    $updated_comment_body = $(this).parent().find('.body_edit').val()
     $.ajax
       type: 'PUT'
-      url: "/posts/#{post_id}/comments/#{comment_id}"
-      data: { comment: { body: updated_comment_body } }
+      url: "/posts/#{post_id}/comments/#{$comment_id}"
+      data: { comment: { body: $updated_comment_body } }
       dataType: "json"
       success: (data) ->
         $button.parent().find('.body_edit').hide()
-        comment_id = $button.parent().find('.comment_id').val()
         $button.parent().find('.comment_body').show()
-        document.getElementById("comment_body_#{comment_id}").innerHTML = $button.parent().find('.body_edit').val()
+        document.getElementById("comment_body_#{$comment_id}").innerHTML = $updated_comment_body
         $button.parent().find('.edit_comment').show()
         $button.parent().find('.delete_comment').show()
         $button.parent().find('.cancel_update').remove()
