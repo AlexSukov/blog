@@ -16,7 +16,6 @@ $ ->
         <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
         <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
         </a>")
-        debugger
         $('#comment_body').val('')
       error: (data) ->
         alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
@@ -53,7 +52,6 @@ $ ->
         $button.parent().find('.delete_comment').show()
         $button.parent().find('.cancel_update').remove()
         $button.remove()
-        debugger
       error: (data) ->
         alert('Произошла непредвиденная ошибка.')
   $(document).on 'click', '.delete_comment', ->
