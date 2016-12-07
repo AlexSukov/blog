@@ -1,11 +1,12 @@
 $ ->
   $('.create_comment').on 'click' , ->
     post_id = $('#post_id').val()
+    user_id = $('#author_id').val()
     comment_body = $('#comment_body').val()
     $.ajax
       type: 'POST'
       url: "/posts/#{post_id}/comments"
-      data: { comment: { body: comment_body } }
+      data: { comment: { body: comment_body, user_id: user_id } }
       dataType: "json"
       success: (data) ->
         $('.comments').append("<a class='list-group-item'>#{comment_body}
