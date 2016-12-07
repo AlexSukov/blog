@@ -14,12 +14,22 @@
   - @post.comments.each do |comment|
     - if comment.body?
       %a.list-group-item
-        = comment.body
+        %input.body_edit{ value: comment.body, hidden: true}
+        .comment_body.inline{ id: "comment_body_#{comment.id}"}= comment.body
         %input.comment_id{ value: comment.id, hidden: true }
         %button.btn.btn-primary.mt-10.delete_comment= 'Удалить'
         %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать'
 .row
-  .col-md-6
-    %textarea.form-control#comment_body
-    %input#post_id{ value: @post.id, hidden: true }
-    %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
+  - if user_signed_in?
+    .col-md-6
+      %textarea.form-control#comment_body
+      %input#post_id{ value: @post.id, hidden: true }
+      %input#author_id{ value: current_user.id, hidden: true }
+      %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
+  - else
+    .col-md-6
+      %p
+        ='Чтобы оставлять комментарии'
+        %a= link_to 'Войдите', new_user_session_path
+        ='либо'
+        %a= link_to 'Зарегистрируйтесь', new_user_registration_path
