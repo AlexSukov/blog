@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   respond_to :html, :js
-  respond_to :json, only: [:create, :destroy]
+  respond_to :json, only: [:create, :destroy, :update]
 
   def show
   end
