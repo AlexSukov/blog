@@ -1,1 +1,15 @@
-.h1= @user.username
+.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    %table.table.profile
+      %tr
+        %th= @user.username
+      %tr
+        %td= image_tag("profile.svg")
+      %tr
+        %td= link_to 'Редактировать профиль', edit_user_registration_path, class: 'btn btn-link header-nav-link'
+      %tr
+        %td Ваши комментарии:
+      -@comments.each do |comment|
+        %tr
+          %td= truncate(comment.body, length: 30)
+          %td= comment.post_id
