@@ -5,8 +5,22 @@
 %p
   %strong Body:
   = @post.body
-%p
-  %strong User:
-  = @post.user
-= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary mt-10'
-= link_to 'Back', posts_path, class: 'btn btn-primary mt-10'
+= link_to 'Редактировать', edit_post_path(@post)
+|
+= link_to 'Назад', root_path
+.list-group.comments
+  %a.list-group-item.active
+    = 'Комментарии:'
+  - @post.comments.each do |comment|
+    - if comment.body?
+      %a.list-group-item
+        = comment.body
+        %input.comment_id{ value: comment.id, hidden: true }
+        %button.btn.btn-primary.mt-10.delete_comment= 'Удалить'
+        %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать'
+.row
+  .col-md-6
+    %textarea.form-control#comment_body
+    %input#post_id{ value: @post.id, hidden: true }
+    %input#author_id{ value: current_user.id, hidden: true }
+    %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
