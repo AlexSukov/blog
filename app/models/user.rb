@@ -28,5 +28,5 @@ class User < ApplicationRecord
     uniqueness: {
       case_sensitive: false
     }
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
+  validates_format_of :username, with: /\A[a-zA-Z0-9_\.]+\z/
 end

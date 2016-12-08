@@ -22,4 +22,5 @@
   .col-md-6
     %textarea.form-control#comment_body
     %input#post_id{ value: @post.id, hidden: true }
+    %input#author_id{ value: current_user.id, hidden: true }
     %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
