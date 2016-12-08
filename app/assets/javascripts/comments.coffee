@@ -1,4 +1,9 @@
 $ ->
+  hide_and_show = (parent) ->
+    parent.find('.body_edit').hide()
+    parent.find('.comment_body').show()
+    parent.find('.edit_comment').show()
+    parent.find('.delete_comment').show()
   $('.create_comment').on 'click' , ->
     post_id = $('#post_id').val()
     user_id = $('#author_id').val()
@@ -20,20 +25,20 @@ $ ->
       error: (data) ->
         alert('Нельзя отправлять пустой комментарий. Пожалуйста, введите текст в поле комментария.')
   $(document).on 'click', '.edit_comment', ->
-    $(this).parent().find('.comment_body').hide()
-    $(this).parent().find('.body_edit').show()
-    $(this).parent().append("<button class='btn update_comment'>Update</button>
+    $parent = $(this).parent()
+    $parent.find('.comment_body').hide()
+    $parent.find('.body_edit').show()
+    $parent.append("<button class='btn update_comment'>Update</button>
     <button class='btn cancel_update'>Cancel</button>")
-    $(this).parent().find('.delete_comment').hide()
+    $parent.find('.delete_comment').hide()
     $(this).hide()
   $(document).on 'click', '.cancel_update', ->
-      $(this).parent().find('.comment_body').show()
-      $(this).parent().find('.body_edit').hide()
-      $(this).parent().find('.edit_comment').show()
-      $(this).parent().find('.delete_comment').show()
-      $(this).parent().find('.update_comment').remove()
-      $(this).remove()
+    $parent = $(this).parent()
+    hide_and_show($parent)
+    $parent.find('.update_comment').remove()
+    $(this).remove()
   $(document).on 'click', '.update_comment', ->
+    $parent = $(this).parent()
     $button = $(this)
     post_id = $('#post_id').val()
     $comment_id = $(this).parent().find('.comment_id').val()
@@ -44,12 +49,9 @@ $ ->
       data: { comment: { body: $updated_comment_body } }
       dataType: "json"
       success: (data) ->
-        $button.parent().find('.body_edit').hide()
-        $button.parent().find('.comment_body').show()
-        document.getElementById("comment_body_#{$comment_id}").innerHTML = $updated_comment_body
-        $button.parent().find('.edit_comment').show()
-        $button.parent().find('.delete_comment').show()
-        $button.parent().find('.cancel_update').remove()
+        hide_and_show($parent)
+        $("#comment_body_#{$comment_id}")[0].innerHTML = $updated_comment_body
+        $parent.find('.cancel_update').remove()
         $button.remove()
       error: (data) ->
         alert('Произошла непредвиденная ошибка.')
