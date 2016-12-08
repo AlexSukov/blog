@@ -41,8 +41,8 @@ $ ->
     $parent = $(this).parent()
     $button = $(this)
     post_id = $('#post_id').val()
-    $comment_id = $(this).parent().find('.comment_id').val()
-    $updated_comment_body = $(this).parent().find('.body_edit').val()
+    $comment_id = $parent.find('.comment_id').val()
+    $updated_comment_body = $parent.find('.body_edit').val()
     $.ajax
       type: 'PUT'
       url: "/posts/#{post_id}/comments/#{$comment_id}"
@@ -56,15 +56,15 @@ $ ->
       error: (data) ->
         alert('Произошла непредвиденная ошибка.')
   $(document).on 'click', '.delete_comment', ->
-    $button = $(this)
+    $parent = $(this).parent()
     post_id = $('#post_id').val()
-    comment_id = $(this).parent().find('.comment_id').val()
+    comment_id = $parent().find('.comment_id').val()
     $.ajax
       type: 'DELETE'
       url: "/posts/#{post_id}/comments/#{comment_id}"
       data: { comment: { id: comment_id } }
       dataType: "json"
       success: (data) ->
-        $button.parent().remove()
+        $parent.remove()
       error: (data) ->
         alert('Произошла непредвиденная ошибка.')
