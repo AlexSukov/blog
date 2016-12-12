@@ -19,3 +19,9 @@
       -else
         %tr
           %td{colspan: '2'}= 'Вы не оставили ни одного комментария'
+      %tr
+        %td{colspan: '2'} Список всех пользователей:
+      -@users.each do |user|
+        %tr
+          %td= user.email
+          %td= user.username
