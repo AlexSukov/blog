@@ -18,8 +18,8 @@ $ ->
         <input class='body_edit' hidden value='#{data.body}'>
         <div class='comment_body inline' id='comment_body_#{data.id}'>#{data.body}</div>
         <input class='comment_id' hidden value='#{data.id}'>
-        <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
-        <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
+        <button class='btn btn-default icon delete_comment glyphicon glyphicon-trash'></button>
+        <button class='btn btn-default icon edit_comment glyphicon glyphicon-pencil'></button>
         </a>")
         $('#comment_body').val('')
       error: (data) ->
@@ -58,7 +58,7 @@ $ ->
   $(document).on 'click', '.delete_comment', ->
     $parent = $(this).parent()
     post_id = $('#post_id').val()
-    comment_id = $parent().find('.comment_id').val()
+    comment_id = $parent.find('.comment_id').val()
     $.ajax
       type: 'DELETE'
       url: "/posts/#{post_id}/comments/#{comment_id}"

@@ -1,21 +1,15 @@
 %p#notice= notice
 .row
   .col-xs-12.col-sm-6.col-md-4.col-lg-4
-    #svg-container
-      %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-        %polygon{points: '0,100 30,0 100,0 100,100'}
+    = render partial: "layouts/svg", locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
     = link_to new_post_path do
       %table.table.post
         %tr
           %td.plus
-    #svg-container.margin-bottom
-      %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-        %polygon{points: '100,0 70,100 0,100 0,0'}
+    = render partial: "layouts/svg", locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
   - @posts. each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
-      #svg-container
-        %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-          %polygon{points: '0,100 30,0 100,0 100,100'}
+      = render partial: "layouts/svg", locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
       %table.table.post
         %tr
           %th.title{colspan: 3}= link_to post.title, post
