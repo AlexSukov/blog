@@ -13,14 +13,13 @@ class User < ApplicationRecord
       where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
     else
       if conditions[:username].nil?
+        #make email to be case insensitive
+        conditions[:email].downcase! if conditions[:email]
         where(conditions).first
       else
         where(username: conditions[:username]).first
       end
     end
-    #make email to be case insensitive
-    conditions[:email].downcase! if conditions[:email]
-    where(conditions.to_h).first
   end
   #make username to be case insensitive
   validates :username,
