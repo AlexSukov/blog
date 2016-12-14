@@ -66,30 +66,114 @@ table.table.post {
   text {
     fill: black;
   }
+  &:hover {
+    fill: purple;
+    text {
+      fill: white;
+    }
+  }
 }
 
-.read:hover {
-  fill: purple;
-  text {
-    fill: white;
+.red {
+  color: red;
+  &:hover{
+    color: red;
+  }
+  &:focus {
+    color: red;
+    &:focus:hover {
+    color: red;
+    }
+  }
+  &:active:focus {
+    color: red;
+  }
+}
+
+.blue {
+  color: blue;
+  &:hover{
+    color: blue;
+  }
+  &:focus {
+    color: blue;
+    &:focus:hover {
+    color: blue;
+    }
+  }
+  &:active:focus {
+    color: blue;
+  }
+}
+
+.green {
+  color: green;
+  &:hover{
+    color: green;
+  }
+  &:focus {
+    color: green;
+    &:focus:hover {
+    color: green;
+    }
+  }
+  &:active:focus {
+    color: green;
+  }
+}
+
+a.list-group-item.active {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  &:hover{
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+  }
+}
+
+.btn:focus {
+  outline: 0px;
+  &:hover{
+    outline: 0px;
+  }
+  &:active{
+    outline: 0px;
   }
 }
 
 .icon {
   border: 0;
   background-color: transparent;
-  color: red;
   transition: all 0.5s;
   text-decoration: none;
+  vertical-align: middle;
+  line-height: 6px;
 }
 .icon:hover {
-  color: purple;
   transform: scale(1.5, 1.5);
+  background-color: transparent;
+}
+.icon:focus:hover {
   background-color: transparent;
 }
 .icon:active {
   background-color: transparent;
-  border-color: transparent;
+}
+.icon:active:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.icon:active:hover {
+  background-color: transparent;
+}
+
+.icon:focus {
+  background-color: transparent;
+}
+
+.float-right {
+  float: right;
 }
 
 #svg-container {

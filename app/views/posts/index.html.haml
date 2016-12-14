@@ -7,7 +7,7 @@
         %tr
           %td.plus
     = render partial: "layouts/svg", locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
-  - @posts. each do |post|
+  - @posts.each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
       = render partial: "layouts/svg", locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
       %table.table.post
