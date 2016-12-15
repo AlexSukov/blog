@@ -2,20 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 table.table.profile {
-  th{
+  text-align: center;
+  th {
     font-size: 3rem;
     text-align: center;
     border: 0;
   }
-  td{
+  td {
     border: 0;
     color: white;
   }
-  img{
-    width: 40%;
+  .user {
+    font-size: 20rem;
   }
-  text-align: center;
-  a{
+  a {
       font-size: 2rem;
   }
 }
