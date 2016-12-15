@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170204084449) do
+=======
+ActiveRecord::Schema.define(version: 20161212104446) do
+>>>>>>> #19: Added carrierwave
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +50,9 @@ ActiveRecord::Schema.define(version: 20170204084449) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "attachments", default: [],              array: true
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 

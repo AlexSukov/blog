@@ -26,7 +26,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.update(post_params)
+    add_more_attachments(post_params[:attachments]) if post_params[:attachments].present?
+    @post.update(post_params.except(:attachments))
     respond_with(@post)
   end
 
@@ -43,6 +44,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :user_id).merge(user_id: current_user.id)
+  end
+
+  def add_more_attachments(new_attachments)
+    attachments = @post.attachments
+    attachments += new_attachments
+    @post.attachments = attachments
   end
 
 end
