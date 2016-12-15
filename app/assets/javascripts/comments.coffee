@@ -14,12 +14,13 @@ $ ->
       data: { comment: { body: comment_body, user_id: user_id } }
       dataType: "json"
       success: (data) ->
+        $('.no-comment').remove()
         $('.comments').append("<a class='list-group-item'>
         <input class='body_edit' hidden value='#{data.body}'>
         <div class='comment_body inline' id='comment_body_#{data.id}'>#{data.body}</div>
         <input class='comment_id' hidden value='#{data.id}'>
-        <button class='btn btn-primary mt-10 delete_comment'>Удалить</button>
-        <button class='btn btn-primary mt-10 edit_comment'>Редактировать</button>
+        <button class='btn btn-default delete_comment glyphicon glyphicon-trash icon red float-right'></button>
+        <button class='btn btn-default edit_comment glyphicon glyphicon-pencil icon float-right'></button>
         </a>")
         $('#comment_body').val('')
       error: (data) ->
@@ -28,8 +29,8 @@ $ ->
     $parent = $(this).parent()
     $parent.find('.comment_body').hide()
     $parent.find('.body_edit').show()
-    $parent.append("<button class='btn update_comment'>Update</button>
-    <button class='btn cancel_update'>Cancel</button>")
+    $parent.append("<button class='btn btn-default update_comment glyphicon glyphicon-ok icon green'></button>
+    <button class='btn btn-default cancel_update glyphicon glyphicon-remove icon red'></button>")
     $parent.find('.delete_comment').hide()
     $(this).hide()
   $(document).on 'click', '.cancel_update', ->
@@ -58,7 +59,7 @@ $ ->
   $(document).on 'click', '.delete_comment', ->
     $parent = $(this).parent()
     post_id = $('#post_id').val()
-    comment_id = $parent().find('.comment_id').val()
+    comment_id = $parent.find('.comment_id').val()
     $.ajax
       type: 'DELETE'
       url: "/posts/#{post_id}/comments/#{comment_id}"
