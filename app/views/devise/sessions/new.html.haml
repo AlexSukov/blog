@@ -1,15 +1,17 @@
 .registration_block
-  %h2= 'Log in'
+  %h2= 'Авторизация'
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .form-group
-      = f.label :login,  class:'control-label'
+      = f.label :Имя_пользователя_или_электронная_почта,  class:'control-label'
       = f.text_field :login, autofocus: true, class: 'form-control'
     .form-group
-      = f.label :password, class:'control-label'
+      = f.label :Пароль, class:'control-label'
       = f.password_field :password, autocomplete: "off", class: 'form-control'
     - if devise_mapping.rememberable?
       .checkbox
         = f.check_box :remember_me
-        = f.label :remember_me
-    = f.submit 'Log in', class: 'btn btn-primary'
-    = render "devise/shared/links"
+        = f.label :Запомнить_меня
+    = f.submit 'Вход', class: 'btn btn-primary'
+    %p
+      ='Ещё не зарегестрированы?'
+      = render "devise/shared/links"
