@@ -1,3 +1,21 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table.table.profile {
+  text-align: center;
+  th {
+    font-size: 3rem;
+    text-align: center;
+    border: 0;
+  }
+  td {
+    border: 0;
+    color: white;
+  }
+  .user {
+    font-size: 20rem;
+  }
+  a {
+      font-size: 2rem;
+  }
+}
