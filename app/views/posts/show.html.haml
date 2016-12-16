@@ -9,6 +9,10 @@
       %tr
         %td= link_to 'Редактировать', edit_post_path(@post)
         %td= link_to 'Назад', root_path
+      %table.table.post
+        %tr
+          - @post.attachments.each do |attachment| #grab the index
+            %td= image_tag attachment.url, class: 'img-thumbnail'
     %br
     -if current_user
       Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку'}
