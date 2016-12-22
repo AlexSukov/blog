@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
-  before_action :set_author, only: :new
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
@@ -42,10 +41,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id)
+    params.require(:post).permit(:title, :body, :user_id).merge(user_id: current_user.id)
   end
 
-  def set_author
-    @author = current_user
-  end
 end
