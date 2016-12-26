@@ -8,10 +8,10 @@
         - post.errors.full_messages.each do |message|
           %li= message
   .form-group
-    = f.label :title
+    = f.label :Название
     = f.text_field :title, class: 'form-control'
   .form-group
-    = f.label :body
+    = f.label :Текст
     = f.text_area :body, class: 'form-control'
     = f.hidden_field :user_id
   .actions
