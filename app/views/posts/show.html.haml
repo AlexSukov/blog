@@ -1,35 +1,40 @@
 %p#notice= notice
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong Body:
-  = @post.body
-= link_to 'Редактировать', edit_post_path(@post)
-|
-= link_to 'Назад', root_path
-.list-group.comments
-  %a.list-group-item.active
-    = 'Комментарии:'
-  - @post.comments.each do |comment|
-    - if comment.body?
-      %a.list-group-item
-        %input.body_edit{ value: comment.body, hidden: true}
-        .comment_body.inline{ id: "comment_body_#{comment.id}"}= comment.body
-        %input.comment_id{ value: comment.id, hidden: true }
-        %button.btn.btn-primary.mt-10.delete_comment= 'Удалить'
-        %button.btn.btn-primary.mt-10.edit_comment= 'Редактировать'
 .row
-  - if user_signed_in?
-    .col-md-6
-      %textarea.form-control#comment_body
-      %input#post_id{ value: @post.id, hidden: true }
-      %input#author_id{ value: current_user.id, hidden: true }
-      %button.btn.btn-primary.mt-10.create_comment= 'Добавить комментарий'
-  - else
-    .col-md-6
-      %p
-        ='Чтобы оставлять комментарии'
-        %a= link_to 'Войдите', new_user_session_path
-        ='либо'
-        %a= link_to 'Зарегистрируйтесь', new_user_registration_path
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    =render partial: 'layouts/svg', locals: {points: '0,100 100,100 100,0', fill: 'white'}
+    %table.table.post
+      %tr
+        %th.title{colspan: '2'}= @post.title
+      %tr
+        %td.body{colspan: '2'}= @post.body.prep.newlines_to_br
+      %tr
+        %td= link_to 'Редактировать', edit_post_path(@post)
+        %td= link_to 'Назад', root_path
+    %br
+    .list-group.comments
+      %a.list-group-item.active
+        = 'Комментарии:'
+      - if @post.comments.any?
+        - @post.comments.each do |comment|
+          %a.list-group-item
+            %input.body_edit{ value: comment.body, hidden: true}
+            .comment_body.inline{ id: "comment_body_#{comment.id}"}= comment.body
+            %input.comment_id{ value: comment.id, hidden: true }
+            %button.btn.btn-default.delete_comment.glyphicon.glyphicon-trash.icon.red.float-right
+            %button.btn.btn-default.edit_comment.glyphicon.glyphicon-pencil.icon.float-right
+      - else
+        %h4.no-comment= 'Ещё никто не оставил комментарий. Будьте первым!'
+    .row
+      - if user_signed_in?
+        .col-md-6
+          %textarea.form-control#comment_body
+          %input#post_id{ value: @post.id, hidden: true }
+          %input#author_id{ value: current_user.id, hidden: true }
+          %button.btn.btn-success.mt-10.create_comment= 'Добавить комментарий'
+      - else
+        .col-md-6
+          %p
+            ='Чтобы оставлять комментарии'
+            %a= link_to 'Войдите', new_user_session_path
+            ='либо'
+            %a= link_to 'Зарегистрируйтесь', new_user_registration_path

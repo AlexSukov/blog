@@ -10,27 +10,21 @@
       .row
         %ul.list-unstyled.inline.pull-right.mb-0
           - if user_signed_in?
+            %li.inline= link_to 'Профиль', user_profile_path(current_user.username), class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-link header-nav-link'
-            %li.inline= link_to 'Редактировать профиль', edit_user_registration_path, class: 'btn btn-link header-nav-link'
           -else
             %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
       .row.head
-        %h1= 'БЛОГ'
-        #svg-container
-          %svg{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-            %polygon{points: '0,100 100,0 100,100'}
+        %h1= link_to 'БЛОГ', root_path
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: 'white'}
     %main.container
       .row.no-padding
-        #svg-container.bg-white
-          %svg.black{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-            %polygon{points: '0,100 100,0 100,100'}
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: 'white'}
       = yield
     %footer.container
       .row
-        #svg-container
-          %svg.black{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-            %polygon{points: '0,100 100,0 0,0'}
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: 'black'}
       .site-footer
         %ul.list-unstyled.inline
           %li.inline
