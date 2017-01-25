@@ -6,7 +6,8 @@ class PostsController < ApplicationController
   respond_to :json, :html
 
   def index
-    respond_with(@posts = Post.all.order('created_at DESC'))
+    @search = Post.search(params[:q])
+    respond_with(@posts = @search.result.order('created_at DESC'))
   end
 
   def show
