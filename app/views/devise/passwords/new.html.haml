@@ -1,9 +1,9 @@
-%h2 Forgot your password?
+%h2 Забыли Ваш пароль?
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = devise_error_messages!
   .field
-    = f.label :username
+    = f.label :Имя_пользователя
     = f.text_field :username, autofocus: true
   .actions
-    = f.submit "Send me reset password instructions"
+    = f.submit "Пришлите мне инструкции по восстановлению"
 = render "devise/shared/links"
