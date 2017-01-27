@@ -3,9 +3,10 @@
 = search_form_for @search, url: search_posts_path, method: :post do |f|
   .field
     =f.label :title_cont, "Название поста содержит"
-    =f.text_field :title_cont
-  .btn.btn-default
-    =f.submit "Поиск"
+    .input-group
+      =f.text_field :title_cont, class: 'form-control'
+      %span.input-group-btn
+        =f.submit "Поиск", class: 'btn btn-default'
 
 .row
   .col-xs-12.col-sm-6.col-md-4.col-lg-4
