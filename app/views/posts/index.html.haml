@@ -1,4 +1,11 @@
-%p#notice= notice
+= search_form_for @search, url: search_posts_path, method: :post do |f|
+  .field
+    =f.label :title_cont, "Название поста содержит"
+    .input-group
+      =f.text_field :title_cont, class: 'form-control'
+      %span.input-group-btn
+        =f.submit "Поиск", class: 'btn btn-default'
+
 .row
   .col-xs-12.col-sm-6.col-md-4.col-lg-4
     = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
