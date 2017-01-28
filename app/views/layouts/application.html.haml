@@ -15,6 +15,18 @@
           -else
             %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
+      - if flash[:notice]
+        .alert.alert-success
+          %button.close{'data-dismiss' => 'alert'} &times;
+          = flash[:notice]
+      - elsif flash[:error]
+        .alert.alert-danger
+          %button.close{'data-dismiss' => 'alert'} &times;
+          = flash[:error]
+      - elsif flash[:alert]
+        .alert.alert-warning
+          %button.close{'data-dismiss' => 'alert'} &times;
+          = flash[:alert]
       .row.head
         %h1= link_to 'БЛОГ', root_path
         = render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: 'white'}
