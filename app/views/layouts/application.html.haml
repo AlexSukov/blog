@@ -16,15 +16,15 @@
             %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
       - if flash[:notice]
-        .alert.alert-success
+        .alert.alert-success.fade.in
           %button.close{'data-dismiss' => 'alert'} &times;
           = flash[:notice]
       - elsif flash[:error]
-        .alert.alert-danger
+        .alert.alert-danger.fade.in
           %button.close{'data-dismiss' => 'alert'} &times;
           = flash[:error]
       - elsif flash[:alert]
-        .alert.alert-warning
+        .alert.alert-warning.fade.in
           %button.close{'data-dismiss' => 'alert'} &times;
           = flash[:alert]
       .row.head

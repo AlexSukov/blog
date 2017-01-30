@@ -37,6 +37,8 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'ratyrate'
 gem 'font-awesome-rails'
 gem 'redcarpet'
+gem 'simple_form'
+gem 'pagedown-bootstrap-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
