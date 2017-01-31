@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     save_attachments if params[:attachments].present?
-    redirect_to @post
+    respond_with(@post)
   end
 
   def update
