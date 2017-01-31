@@ -33,17 +33,13 @@ gem 'responders'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'bootstrap-sass'
-<<<<<<< HEAD
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'ratyrate'
 gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'simple_form'
 gem 'pagedown-bootstrap-rails'
-=======
-gem 'string_master'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
->>>>>>> #19: Added carrierwave
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

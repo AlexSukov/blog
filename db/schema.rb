@@ -11,14 +11,19 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170204084449) do
 =======
 ActiveRecord::Schema.define(version: 20161212104446) do
 >>>>>>> #19: Added carrierwave
+=======
+ActiveRecord::Schema.define(version: 20161223112209) do
+>>>>>>> #19 Carrierwave and Dropzone
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
     t.string   "rateable_type"
@@ -26,6 +31,14 @@ ActiveRecord::Schema.define(version: 20161212104446) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file_name"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_attachments_on_post_id", using: :btree
+>>>>>>> #19 Carrierwave and Dropzone
   end
 
   create_table "comments", force: :cascade do |t|
@@ -50,9 +63,8 @@ ActiveRecord::Schema.define(version: 20161212104446) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "attachments", default: [],              array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
@@ -98,6 +110,7 @@ ActiveRecord::Schema.define(version: 20161212104446) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "attachments", "posts"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"

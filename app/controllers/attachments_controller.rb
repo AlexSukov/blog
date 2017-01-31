@@ -1,23 +1,32 @@
 class AttachmentsController < ApplicationController
+  before_action :set_attachment, only: :destroy
   before_action :set_post
-  respond_to :json, :html
+  respond_to :json, only: [:create, :destroy]
 
-  def destroy
-    remove_attachment_at_index(params[:id].to_i)
-    flash[:error] = "Failed deleting attachment" unless @post.save
-    redirect_to :back
-  end
+ def new
+   @attachment = Attachment.new
+ end
 
-  private
+ def create
+   @attachment = @post.attachments.create(attachment_params)
+   respond_with(@post, @attachment)
+ end
 
-  def set_post
-    @post = Post.find(params[:post_id])
-  end
+ def destroy
+   @attachment.destroy
+   respond_with(@post, @attachment)
+ end
+ private
 
-  def remove_attachment_at_index(index)
-    remain_attachments = @post.attachments # copy the array
-    remain_attachments.delete_at(index) # delete the target attachment
-    @post.attachments = remain_attachments # re-assign back
-    @post.remove_attachments! if remain_attachments.empty?
-  end
+ def set_post
+   @post = Post.find(params[:post_id])
+ end
+
+ def set_attachment
+   @attachment = Attachment.find(params[:id])
+ end
+
+ def attachment_params
+   params.require(:attachment).permit(:file_name, :post_id)
+ end
 end
