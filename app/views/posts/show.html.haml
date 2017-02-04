@@ -10,6 +10,9 @@
         %td= link_to 'Редактировать', edit_post_path(@post)
         %td= link_to 'Назад', root_path
     %br
+    -if current_user
+      Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку'}
+      %br/
     .list-group.comments
       %a.list-group-item.active
         = 'Комментарии:'

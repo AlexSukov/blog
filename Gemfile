@@ -35,6 +35,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'bootstrap-sass'
 gem 'string_master'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'ratyrate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
