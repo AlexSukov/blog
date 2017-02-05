@@ -1,5 +1,5 @@
 .container
-  %h1= 'Editing Post'
+  %h1= 'Редактирование поста'
   = render 'form', post: @post, author: @post.user_id
-  = link_to 'Show', @post, class: 'btn btn-primary mt-10'
-  = link_to 'Back', posts_path, class: 'btn btn-primary mt-10'
+  = link_to 'Просмотр', @post, class: 'btn btn-primary mt-10'
+  = link_to 'Назад', posts_path, class: 'btn btn-primary mt-10'
