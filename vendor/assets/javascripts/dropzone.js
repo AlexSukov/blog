@@ -605,6 +605,7 @@
         return function(file) {
           if (_this.getAddedFiles().length === 0 && _this.getUploadingFiles().length === 0 && _this.getQueuedFiles().length === 0) {
             return setTimeout((function() {
+              window.location.replace('/');
               return _this.emit("queuecomplete");
             }), 0);
           }
