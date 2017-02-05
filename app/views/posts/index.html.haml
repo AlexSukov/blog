@@ -23,7 +23,7 @@
         %tr
           %td.time{colspan: 3}= post.created_at.strftime("%e, %B %Y %X")
         %tr
-          %td.text{colspan: 3}= truncate(post.body, length: 100)
+          %td.text{colspan: 3}= markdown(truncate(post.body, length: 50))
         %tr
           %td
             =link_to edit_post_path(post), class: 'btn btn-default icon' do
