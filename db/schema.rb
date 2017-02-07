@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170218111334) do
 =======
 <<<<<<< HEAD
@@ -19,6 +20,9 @@ ActiveRecord::Schema.define(version: 20170204084449) do
 ActiveRecord::Schema.define(version: 20161124164201) do
 >>>>>>> #11 Added rights for post
 >>>>>>> #11 Added rights for post
+=======
+ActiveRecord::Schema.define(version: 20170204084449) do
+>>>>>>> #11: Added rights
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,8 +108,8 @@ ActiveRecord::Schema.define(version: 20161124164201) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-<<<<<<< HEAD
     t.string   "username"
+<<<<<<< HEAD
 <<<<<<< HEAD
     t.string   "avatar"
 =======
@@ -113,6 +117,9 @@ ActiveRecord::Schema.define(version: 20161124164201) do
     t.integer  "role",                   default: 0
 >>>>>>> #11 Added rights for post
 >>>>>>> #11 Added rights for post
+=======
+    t.integer  "role",                   default: 0
+>>>>>>> #11: Added rights
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
