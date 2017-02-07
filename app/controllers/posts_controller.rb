@@ -27,6 +27,7 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
+    save_attachments if params[:attachments].present?
     respond_with(@post)
   end
 

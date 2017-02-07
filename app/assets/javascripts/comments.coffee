@@ -63,7 +63,6 @@ $ ->
     $.ajax
       type: 'DELETE'
       url: "/posts/#{post_id}/comments/#{comment_id}"
-      data: { comment: { id: comment_id } }
       dataType: "json"
       success: (data) ->
         $parent.remove()
