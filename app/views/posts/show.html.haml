@@ -5,7 +5,7 @@
       %tr
         %th.title{colspan: '2'}= @post.title
       %tr
-        %td.body{colspan: '2'}= markdown(@post.body)
+        %td.body.froala-view{colspan: '2'}= simple_format(@post.body)
       %tr
         %td= link_to 'Редактировать', edit_post_path(@post)
         %td= link_to 'Назад', root_path
