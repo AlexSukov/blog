@@ -2,11 +2,10 @@
 // They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 table.table.post {
-  border: 0px;
   background-color: white;
   margin-bottom: 0;
   text-align: center;
-  td { border: 0;}
+  td.no-border {border: 0;}
   th.title {
     font-size: 2rem;
     text-align: center;
@@ -26,6 +25,8 @@ table.table.post {
     font-size: 1.5rem;
   }
 }
+
+
 
 .head {
   background: url(background.jpg);
