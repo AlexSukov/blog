@@ -1,8 +1,8 @@
-= simple_form_for post, html: {id:'myForm', multipart: true, class: 'dropzone'} do |f|
+= simple_form_for(post) do |f|
   - if post.errors.any?
     #error_explanation
       %h2
-        = pluralize(post.errors.count, 'error')
+        = pluralize(post.errors.count, "error")
         prohibited this post from being saved:
       %ul
         - post.errors.full_messages.each do |message|
@@ -15,13 +15,3 @@
     = f.hidden_field :user_id
   .actions
     = f.submit class: 'btn btn-primary'
-- if post.attachments.any?
-  %br
-  %a.list-group-item.active
-    = 'Прикреплённые файлы'
-  %input#post_id{ value: post.id, hidden: true }
-  - post.attachments.each do |att|
-    %a.list-group-item
-      .att_name.inline= att.file_name
-      %input.att_id{ value: att.id, hidden: true }
-      %button.btn.btn-default.delete_att.glyphicon.glyphicon-trash.icon.red.float-right

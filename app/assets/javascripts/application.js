@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require dropzone
 //= require jquery_ujs
 //= require_tree .
 //= require pagedown_bootstrap
