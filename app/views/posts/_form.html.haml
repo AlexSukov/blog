@@ -11,8 +11,10 @@
     = f.label :Название
     = f.text_field :title, class: 'form-control'
   .form-group
+    = f.label :Описание
+    = f.text_field :description, class: 'form-control'
+  .form-group
     = f.label :Тело_поста
     = f.text_area :body, id: 'wysiwyg', class: 'form-control'
-    = f.hidden_field :user_id
   .actions
     = f.submit class: 'btn btn-primary'
