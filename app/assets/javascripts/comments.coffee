@@ -14,11 +14,14 @@ $ ->
       data: { comment: { body: comment_body, user_id: user_id } }
       dataType: "json"
       success: (data) ->
+        user_username = $('#author_username').val()
+        user_avatar = $('#author_avatar').val()
         $('.no-comment').remove()
         $('.comments').append("<a class='list-group-item'>
-        <input class='body_edit' hidden value='#{data.body}'>
-        <div class='comment_body inline' id='comment_body_#{data.id}'>#{data.body}</div>
-        <input class='comment_id' hidden value='#{data.id}'>
+        <div class='comment_author'><img src='/assets/#{user_avatar}' height='16' width='16'></img> #{user_username} время создания: #{data.created_at}</div>
+        <input class='body_edit' hidden value='#{data.comment.body}'>
+        <div class='comment_body inline' id='comment_body_#{data.comment.id}'>#{data.comment.body}</div>
+        <input class='comment_id' hidden value='#{data.comment.id}'>
         <button class='btn btn-default delete_comment glyphicon glyphicon-trash icon red float-right'></button>
         <button class='btn btn-default edit_comment glyphicon glyphicon-pencil icon float-right'></button>
         </a>")
