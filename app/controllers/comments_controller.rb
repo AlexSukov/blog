@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  respond_to :html, :js
   respond_to :json, only: [:create, :destroy, :update]
 
   def show
@@ -13,7 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.create(comment_params)
-    respond_with(@post, @comment)
+    render json: { comment: @comment, created_at: I18n.l(@comment.created_at, format: :short) }
   end
 
   def update
