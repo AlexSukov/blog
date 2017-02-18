@@ -26,7 +26,7 @@ $ ->
         time = addZero(day) + '.' + addZero(month) + '.' + dt.getFullYear() + ' ' + dt.getHours() + ':' + dt.getMinutes()
         $('.no-comment').remove()
         $('.comments').append("<a class='list-group-item'>
-        <div class='comment_author'><img src='/assets/#{user_avatar}' height='16' width='16'></img> #{user_username} время создания: #{time}</div>
+        <div class='comment_author'><img src='#{user_avatar}' height='16' width='16'></img> #{user_username} время создания: #{time}</div>
         <input class='body_edit' hidden value='#{data.body}'>
         <div class='comment_body inline' id='comment_body_#{data.id}'>#{data.body}</div>
         <input class='comment_id' hidden value='#{data.id}'>
