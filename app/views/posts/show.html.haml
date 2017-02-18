@@ -34,7 +34,7 @@
     .row
       - if user_signed_in?
         .col-md-6
-          - if current_user.try(:banned?)
+          - if current_user&.banned?
             %p
               = 'Вы были забанены и не можете оставлять комментарии'
           - else
