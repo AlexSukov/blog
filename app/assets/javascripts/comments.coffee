@@ -4,10 +4,6 @@ $ ->
     parent.find('.comment_body').show()
     parent.find('.edit_comment').show()
     parent.find('.delete_comment').show()
-  addZero = (i) ->
-    if i < 10
-      i = '0' + i
-    i
   $('.create_comment').on 'click' , ->
     post_id = $('#post_id').val()
     user_id = $('#author_id').val()
@@ -20,16 +16,12 @@ $ ->
       success: (data) ->
         user_username = $('#author_username').val()
         user_avatar = $('#author_avatar').val()
-        dt = new Date
-        month = dt.getMonth()+1
-        day = dt.getDate()
-        time = addZero(day) + '.' + addZero(month) + '.' + dt.getFullYear() + ' ' + dt.getHours() + ':' + dt.getMinutes()
         $('.no-comment').remove()
         $('.comments').append("<a class='list-group-item'>
-        <div class='comment_author'><img src='#{user_avatar}' height='16' width='16'></img> #{user_username} время создания: #{time}</div>
-        <input class='body_edit' hidden value='#{data.body}'>
-        <div class='comment_body inline' id='comment_body_#{data.id}'>#{data.body}</div>
-        <input class='comment_id' hidden value='#{data.id}'>
+        <div class='comment_author'><img src='#{user_avatar}' class= 'img-circle' height='50' width='50'></img> #{user_username} время создания: #{data.created_at}</div>
+        <div class='comment_body inline' id='comment_body_#{data.comment.id}'>#{data.comment.body}</div>
+        <input class='body_edit' hidden value='#{data.comment.body}'>
+        <input class='comment_id' hidden value='#{data.comment.id}'>
         <button class='btn btn-default delete_comment glyphicon glyphicon-trash icon red float-right'></button>
         <button class='btn btn-default edit_comment glyphicon glyphicon-pencil icon float-right'></button>
         </a>")
