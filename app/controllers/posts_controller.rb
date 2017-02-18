@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_post, except: [:index, :new, :show]
 
   respond_to :json, :html
 
@@ -17,28 +18,28 @@ class PostsController < ApplicationController
   end
 
   def edit
-    authorize @post
   end
 
   def create
-    authorize @post
     @post = Post.create(post_params)
     respond_with(@post)
   end
 
   def update
-    authorize @post
     @post.update(post_params)
     respond_with(@post)
   end
 
   def destroy
-    authorize @post
     @post.destroy
     respond_with(@post)
   end
 
   private
+
+  def authorize_post
+    authorize @post
+  end
 
   def set_post
     @post = Post.find(params[:id])

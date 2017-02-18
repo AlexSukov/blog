@@ -3,9 +3,10 @@ require 'application_responder'
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
+  after_action :verify_authorized
   self.responder = ApplicationResponder
   respond_to :html, :json
-  
+
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 

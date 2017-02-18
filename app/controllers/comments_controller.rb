@@ -2,13 +2,14 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_comment, only: [:edit, :update, :destroy]
+
   respond_to :json, only: [:create, :destroy, :update]
 
   def show
   end
 
   def edit
-    authorize @comment
   end
 
   def create
@@ -17,18 +18,20 @@ class CommentsController < ApplicationController
   end
 
   def update
-    authorize @comment
     @comment.update(comment_params)
     respond_with(@post, @comment)
   end
 
   def destroy
-    authorize @comment
     @comment.destroy
     respond_with(@post, @comment)
   end
 
   private
+
+  def authorize_comment
+    authorize @comment
+  end
 
   def set_post
     @post = Post.find(params[:post_id])

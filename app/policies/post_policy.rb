@@ -7,14 +7,14 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    @current_user.try(:admin?)
+    @current_user&.admin?
   end
 
   def update?
-    @current_user.try(:admin?) or @current_user.try(:moderator?)
+    @current_user&.admin? || @current_user&.moderator?
   end
 
   def destroy?
-      @current_user.try(:admin?)
+      @current_user&.admin?
   end
 end

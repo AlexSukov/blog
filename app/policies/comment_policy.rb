@@ -7,10 +7,10 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-      @current_user.try(:admin?) or @current_user.try(:moderator?) or (@comment.user_id == @current_user and @current_user.try(:user?))
+      @current_user&.admin? || @current_user&.moderator? || (@comment.user_id == @current_user && @current_user&.user?)
   end
 
   def destroy?
-        @current_user.try(:admin?) or @current_user.try(:moderator?) or (@comment.user_id == @current_user and @current_user.try(:user?))
+        @current_user&.admin? || @current_user&.moderator? || (@comment.user_id == @current_user && @current_user&.user?)
   end
 end
