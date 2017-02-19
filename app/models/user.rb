@@ -4,6 +4,7 @@ class User < ApplicationRecord
   attr_accessor :login
   has_many :posts
   has_many :comments
+  mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   #overwrite Devise's find_for_database_authentication method

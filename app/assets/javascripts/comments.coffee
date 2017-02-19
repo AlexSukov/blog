@@ -18,9 +18,9 @@ $ ->
         user_avatar = $('#author_avatar').val()
         $('.no-comment').remove()
         $('.comments').append("<a class='list-group-item'>
-        <div class='comment_author'><img src='/assets/#{user_avatar}' height='16' width='16'></img> #{user_username} время создания: #{data.created_at}</div>
-        <input class='body_edit' hidden value='#{data.comment.body}'>
+        <div class='comment_author'><img src='#{user_avatar}' class= 'img-circle' height='50' width='50'></img> #{user_username} время создания: #{data.created_at}</div>
         <div class='comment_body inline' id='comment_body_#{data.comment.id}'>#{data.comment.body}</div>
+        <input class='body_edit' hidden value='#{data.comment.body}'>
         <input class='comment_id' hidden value='#{data.comment.id}'>
         <button class='btn btn-default delete_comment glyphicon glyphicon-trash icon red float-right'></button>
         <button class='btn btn-default edit_comment glyphicon glyphicon-pencil icon float-right'></button>
