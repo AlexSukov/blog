@@ -3,12 +3,12 @@
     =render partial: 'layouts/svg', locals: {points: '0,100 100,100 100,0', fill: 'white'}
     %table.table.post
       %tr
-        %th.title{colspan: '2'}= @post.title
+        %th.title.no-border{colspan: '2'}= @post.title
       %tr
-        %td.body{colspan: '2'}= markdown(@post.body)
+        %td.body.no-border.fr-view{colspan: '2'}= simple_format(@post.body, {}, sanitize: false)
       %tr
-        %td= link_to 'Редактировать', edit_post_path(@post)
-        %td= link_to 'Назад', root_path
+        %td.no-border= link_to 'Редактировать', edit_post_path(@post)
+        %td.no-border= link_to 'Назад', root_path
     %br
     -if current_user
       Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку'}

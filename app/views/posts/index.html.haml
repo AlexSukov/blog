@@ -12,7 +12,7 @@
     = link_to new_post_path do
       %table.table.post
         %tr
-          %td.plus
+          %td.plus.no-border
     = render partial: 'layouts/svg', locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
   - @posts.each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
@@ -21,14 +21,14 @@
         %tr
           %th.title{colspan: 3}= link_to post.title, post
         %tr
-          %td.time{colspan: 3}= I18n.l post.created_at, format: :long
+          %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
         %tr
-          %td.text{colspan: 3}= truncate(post.body, length: 100)
+          %td.text.no-border{colspan: 3}= truncate((post.body), length: 100)
         %tr
-          %td
+          %td.no-border
             =link_to edit_post_path(post), class: 'btn btn-default icon' do
               %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
-          %td
+          %td.no-border
             =link_to post, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
               %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
       = link_to post do
