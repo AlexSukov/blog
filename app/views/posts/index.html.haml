@@ -21,7 +21,7 @@
         %tr
           %th.title{colspan: 3}= link_to post.title, post
         %tr
-          %td.time{colspan: 3}= I18n.l post.created_at, format: :long
+          %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
         %tr
           %td.text.no-border{colspan: 3}= truncate((post.body), length: 100)
         %tr
