@@ -19,11 +19,11 @@
       = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
       %table.table.post
         %tr
-          %th.title{colspan: 3}= link_to post.title, post
+          %th.title{colspan: 3}= link_to truncate(post.title, length: 25), post
         %tr
           %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
         %tr
-          %td.text.no-border{colspan: 3}= truncate((post.body), length: 100)
+          %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
         %tr
           %td.no-border
             =link_to edit_post_path(post), class: 'btn btn-default icon' do
