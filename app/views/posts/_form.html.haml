@@ -11,7 +11,7 @@
     = f.label :Название
     = f.text_field :title, class: 'form-control'
   .form-group
-    = f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 }, class: 'form-control'
+    = f.text_area :body, class: 'form-control'
     = f.hidden_field :user_id
   .actions
     = f.submit class: 'btn btn-primary'

@@ -38,7 +38,6 @@ gem 'ratyrate'
 gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'simple_form'
-gem 'pagedown-bootstrap-rails'
 gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
