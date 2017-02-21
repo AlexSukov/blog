@@ -25,7 +25,7 @@
         %tr
           %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
         %tr
-          - if policy(post).update?
+          - if policy(post).edit?
             %td.no-border
               =link_to edit_post_path(post), class: 'btn btn-default icon' do
                 %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')

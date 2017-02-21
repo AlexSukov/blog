@@ -10,6 +10,10 @@ class PostPolicy < ApplicationPolicy
     @current_user&.admin?
   end
 
+  def edit?
+    @current_user&.admin? || @current_user&.moderator?
+  end
+
   def update?
     @current_user&.admin? || @current_user&.moderator?
   end
