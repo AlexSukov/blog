@@ -10,30 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170218111334) do
-=======
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170204084449) do
-=======
-ActiveRecord::Schema.define(version: 20161124164201) do
->>>>>>> #11 Added rights for post
->>>>>>> #11 Added rights for post
-=======
-ActiveRecord::Schema.define(version: 20170204084449) do
->>>>>>> #11: Added rights
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "attachments", force: :cascade do |t|
-    t.string   "file_name"
-    t.integer  "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_attachments_on_post_id", using: :btree
-  end
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -109,23 +89,13 @@ ActiveRecord::Schema.define(version: 20170204084449) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
-<<<<<<< HEAD
-<<<<<<< HEAD
+    t.integer  "role",                   default: 0
     t.string   "avatar"
-=======
-=======
-    t.integer  "role",                   default: 0
->>>>>>> #11 Added rights for post
->>>>>>> #11 Added rights for post
-=======
-    t.integer  "role",                   default: 0
->>>>>>> #11: Added rights
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
-  add_foreign_key "attachments", "posts"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
