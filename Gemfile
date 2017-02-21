@@ -38,14 +38,9 @@ gem 'ratyrate'
 gem 'font-awesome-rails'
 gem 'redcarpet'
 gem 'simple_form'
-<<<<<<< HEAD
 gem 'carrierwave'
 gem 'wysiwyg-rails'
-=======
-gem 'pagedown-bootstrap-rails'
-gem 'carrierwave'
 gem 'pundit'
->>>>>>> #11 Added rights for post
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
