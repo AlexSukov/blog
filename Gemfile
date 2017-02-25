@@ -40,6 +40,7 @@ gem 'redcarpet'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'wysiwyg-rails'
+gem 'pundit'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

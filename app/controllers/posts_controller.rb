@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_post, except: [:index, :new, :show]
 
   respond_to :json, :html
 
@@ -35,6 +36,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def authorize_post
+    authorize @post
+  end
 
   def set_post
     @post = Post.find(params[:id])
