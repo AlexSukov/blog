@@ -7,7 +7,8 @@
       %tr
         %td.body.no-border.fr-view{colspan: '2'}= simple_format(@post.body, {}, sanitize: false)
       %tr
-        %td.no-border= link_to 'Редактировать', edit_post_path(@post)
+        - if policy(@post).edit?
+          %td.no-border= link_to 'Редактировать', edit_post_path(@post)
         %td.no-border= link_to 'Назад', root_path
     %br
     -if current_user
@@ -25,10 +26,10 @@
             %input.body_edit{ value: comment.body, hidden: true}
             .comment_body.inline{ id: "comment_body_#{comment.id}"}= comment.body
             %input.comment_id{ value: comment.id, hidden: true }
-            - if policy(comment).edit?
-            %button.btn.btn-default.edit_comment.glyphicon.glyphicon-pencil.icon.float-right
             - if policy(comment).destroy?
               %button.btn.btn-default.delete_comment.glyphicon.glyphicon-trash.icon.red.float-right
+            - if policy(comment).edit?
+              %button.btn.btn-default.edit_comment.glyphicon.glyphicon-pencil.icon.float-right
       - else
         %h4.no-comment= 'Ещё никто не оставил комментарий. Будьте первым!'
     .row
