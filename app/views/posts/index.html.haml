@@ -7,13 +7,14 @@
         =f.submit "Поиск", class: 'btn btn-default'
 
 .row
-  .col-xs-12.col-sm-6.col-md-4.col-lg-4
-    = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
-    = link_to new_post_path do
-      %table.table.post
-        %tr
-          %td.plus.no-border
-    = render partial: 'layouts/svg', locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
+  - if policy(@posts).create?
+    .col-xs-12.col-sm-6.col-md-4.col-lg-4
+      = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+      = link_to new_post_path do
+        %table.table.post
+          %tr
+            %td.plus.no-border
+      = render partial: 'layouts/svg', locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
   - @posts.each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
       = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}

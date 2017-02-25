@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authorize_post, except: [:index, :new, :show]
+  after_action :verify_authorized, except: [:index, :show]
 
   respond_to :json, :html
 

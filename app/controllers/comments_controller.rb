@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :authorize_comment, only: [:edit, :update, :destroy]
+  after_action :verify_authorized, except: :create
 
   respond_to :json, only: [:create, :destroy, :update]
 

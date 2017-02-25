@@ -7,14 +7,14 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def edit?
-      @current_user&.admin? || @current_user&.moderator? || (@comment.user_id == @current_user && @current_user&.user?)
+      @current_user&.admin? || @current_user&.moderator? || (@current_user&.user? && @comment.user_id == @current_user.id)
   end
 
   def update?
-      @current_user&.admin? || @current_user&.moderator? || (@comment.user_id == @current_user && @current_user&.user?)
+      @current_user&.admin? || @current_user&.moderator? || (@current_user&.user? && @comment.user_id == @current_user.id)
   end
 
   def destroy?
-        @current_user&.admin? || @current_user&.moderator? || (@comment.user_id == @current_user && @current_user&.user?)
+        @current_user&.admin? || @current_user&.moderator? || (@current_user&.user? && @comment.user_id == @current_user.id)
   end
 end
