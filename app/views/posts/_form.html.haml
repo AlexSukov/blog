@@ -1,4 +1,4 @@
-= simple_form_for(post) do |f|
+= simple_form_for ([@category, post]) do |f|
   - if post.errors.any?
     #error_explanation
       %h2
