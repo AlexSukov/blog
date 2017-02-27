@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218111334) do
+ActiveRecord::Schema.define(version: 20170227100832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "file_name"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_attachments_on_post_id", using: :btree
+  end
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -22,6 +30,15 @@ ActiveRecord::Schema.define(version: 20170218111334) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.string   "image"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_categories_on_user_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -46,9 +63,11 @@ ActiveRecord::Schema.define(version: 20170218111334) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "description"
+    t.integer  "categories_id"
+    t.index ["categories_id"], name: "index_posts_on_categories_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
@@ -89,14 +108,17 @@ ActiveRecord::Schema.define(version: 20170218111334) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
-    t.integer  "role",                   default: 0
     t.string   "avatar"
+    t.integer  "role",                   default: 0
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "attachments", "posts"
+  add_foreign_key "categories", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "posts", "categories", column: "categories_id"
   add_foreign_key "posts", "users"
 end
