@@ -6,19 +6,11 @@ class UserPolicy < ApplicationPolicy
     @user = user
   end
 
-  def new?
-    @current_user&.admin?
-  end
-
   def show?
     @current_user&.admin? || @current_user.id == @user.id
   end
 
   def create?
-    @current_user&.admin?
-  end
-
-  def edit?
     @current_user&.admin?
   end
 
