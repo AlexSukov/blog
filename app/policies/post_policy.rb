@@ -6,6 +6,10 @@ class PostPolicy < ApplicationPolicy
     @post = post
   end
 
+  def new?
+    @current_user&.admin?
+  end
+  
   def create?
     @current_user&.admin?
   end

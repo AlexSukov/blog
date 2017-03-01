@@ -19,9 +19,14 @@
       - else
         %tr
           %td{colspan: '2'}= 'Вы не оставили ни одного комментария'
-      %tr
-        %td{colspan: '2'}= 'Список всех пользователей:'
-      - @users.each do |user|
-        %tr
-          %td= user.email
-          %td= user.username
+- if policy(@user).edit?
+  .list-group
+    %a.list-group-item.active='Список всех пользователей:'
+    - @users.each do |user|
+      %a.list-group-item
+        %input.user_id{value: user.id, hidden:true}
+        = user.email
+        = user.username
+        = select(:user, :role, User.roles.keys.map {|role| [role.titleize,role]}, {selected: user.role})
+        %button.btn.btn-default.delete_user.glyphicon.glyphicon-trash.icon.red.float-right
+        %button.btn.btn-default.update_user.glyphicon.glyphicon-refresh.icon.float-right
