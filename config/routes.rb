@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users, path_prefix: 'd'
-  resources :users, only: :show
+  resources :users, only: [:show, :update, :destroy]
   match '/users/:username', to: 'users#show', as: :user_profile, via: 'get'
 end

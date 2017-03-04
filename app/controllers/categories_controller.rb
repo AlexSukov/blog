@@ -1,8 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_category, except: [:index, :new, :show]
-  after_action :verify_authorized, except: [:new, :index, :show]
+  before_action :authorize_category, except: [:index, :new, :show, :create]
+  before_action :authorize_user, only: [:new, :create]
+  after_action :verify_authorized, except: [:index, :show]
 
   respond_to :json, :html
 
@@ -39,6 +40,10 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def authorize_user
+    authorize current_user
+  end
 
   def authorize_category
     authorize @category

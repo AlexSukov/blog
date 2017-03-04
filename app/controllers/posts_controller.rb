@@ -2,9 +2,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_category
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_post, except: [:index, :new, :show]
-  after_action :verify_authorized, except: [:new, :index, :show]
-
+  before_action :authorize_post, except: [:index, :show, :new, :create]
+  before_action :authorize_user, only: [:new, :create]
+  after_action :verify_authorized, except: [:index, :show]
+  
   respond_to :json, :html
 
   def show
@@ -35,6 +36,10 @@ class PostsController < ApplicationController
 
   private
 
+  def authorize_user
+    authorize current_user
+  end
+
   def authorize_post
     authorize @post
   end
@@ -48,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :description, :category_id).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :body, :description).merge(user_id: current_user.id)
   end
 
 end
