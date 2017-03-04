@@ -8,8 +8,8 @@
         %td.body.no-border.fr-view{colspan: '2'}= simple_format(@post.body, {}, sanitize: false)
       %tr
         - if policy(@post).edit?
-          %td.no-border= link_to 'Редактировать', edit_post_path(@post)
-        %td.no-border= link_to 'Назад', root_path
+          %td.no-border= link_to 'Редактировать', edit_category_post_path(@category, @post)
+        %td.no-border= link_to 'Назад', category_path(@category)
     %br
     -if current_user
       Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку'}

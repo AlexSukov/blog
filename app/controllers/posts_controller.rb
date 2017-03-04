@@ -1,39 +1,36 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_category
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authorize_post, except: [:index, :new, :show]
-  after_action :verify_authorized, except: [:index, :show]
+  after_action :verify_authorized, except: [:new, :index, :show]
 
   respond_to :json, :html
 
-  def index
-    @search = Post.search(params[:q])
-    respond_with(@posts = @search.result.order('created_at DESC'))
-  end
-
   def show
+    respond_with(@post)
   end
 
   def new
-    respond_with(@post = Post.new)
+    respond_with(@post = @category.posts.new)
   end
 
   def edit
   end
 
   def create
-    @post = Post.create(post_params)
-    respond_with(@post)
+    @post = @category.posts.create(post_params)
+    respond_with(@category, @post)
   end
 
   def update
     @post.update(post_params)
-    respond_with(@post)
+    respond_with(@category, @post)
   end
 
   def destroy
     @post.destroy
-    respond_with(@post)
+    respond_with(@category)
   end
 
   private
@@ -42,12 +39,16 @@ class PostsController < ApplicationController
     authorize @post
   end
 
+  def set_category
+    @category = Category.find(params[:category_id])
+  end
+
   def set_post
-    @post = Post.find(params[:id])
+    @post = @category.posts.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :user_id, :description).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :body, :user_id, :description, :category_id).merge(user_id: current_user.id)
   end
 
 end

@@ -10,7 +10,7 @@ $ ->
     comment_body = $('#comment_body').val()
     $.ajax
       type: 'POST'
-      url: "/posts/#{post_id}/comments"
+      url: "#{post_id}/comments"
       data: { comment: { body: comment_body, user_id: user_id } }
       dataType: "json"
       success: (data) ->
@@ -49,7 +49,7 @@ $ ->
     $updated_comment_body = $parent.find('.body_edit').val()
     $.ajax
       type: 'PUT'
-      url: "/posts/#{post_id}/comments/#{$comment_id}"
+      url: "#{post_id}/comments/#{$comment_id}"
       data: { comment: { body: $updated_comment_body } }
       dataType: "json"
       success: (data) ->
@@ -65,7 +65,7 @@ $ ->
     comment_id = $parent.find('.comment_id').val()
     $.ajax
       type: 'DELETE'
-      url: "/posts/#{post_id}/comments/#{comment_id}"
+      url: "#{post_id}/comments/#{comment_id}"
       data: { comment: { id: comment_id } }
       dataType: "json"
       success: (data) ->

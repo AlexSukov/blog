@@ -15,7 +15,7 @@
         - @user.comments.each do |comment|
           %tr
             %td= truncate(comment.body, length: 30)
-            %td= link_to comment.post.title, post_path(comment.post_id)
+            %td= link_to comment.post.title, category_post_path(comment.post.category_id, comment.post_id)
       - else
         %tr
           %td{colspan: '2'}= 'Вы не оставили ни одного комментария'
