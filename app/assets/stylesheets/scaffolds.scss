@@ -5,13 +5,14 @@ header {
 }
 
 body {
-  background-color: white;
+  background-image: url(math_background.png);
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 main {
@@ -71,6 +72,19 @@ svg {
 text {
   font-family: Verdana;
   font-size: 5rem;
+}
+
+.head {
+  //background: url(background.jpg);
+  background-color: #277676;
+  color: white;
+  clear: both;
+  h1 {margin: 0;}
+}
+
+.bg-transparent {
+  background-image: url(math_layout.png);
+  height: 100px;
 }
 
 .black {
