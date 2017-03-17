@@ -15,16 +15,16 @@
           -else
             %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
-          - if flash[:notice]
-            .alert.alert-success.fade.in
+        - if flash[:notice]
+          .alert.alert-success.fade.in.clearfix
             %button.close{'data-dismiss' => 'alert'} &times;
             = flash[:notice]
-          - if flash[:error]
-            .alert.alert-danger.fade.in
+        - if flash[:error]
+          .alert.alert-danger.fade.in.clearfix
             %button.close{'data-dismiss' => 'alert'} &times;
             = flash[:error]
-          - if flash[:alert]
-            .alert.alert-warning.fade.in
+        - if flash[:alert]
+          .alert.alert-warning.fade.in.clearfix
             %button.close{'data-dismiss' => 'alert'} &times;
             = flash[:alert]
         .head
@@ -34,7 +34,7 @@
       = yield
     %footer.container
       .row
-        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: 'black'}
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#277676'}
       .site-footer
         %ul.list-unstyled.inline
           %li.inline

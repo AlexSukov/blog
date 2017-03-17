@@ -1,12 +1,12 @@
 header {
-  background-color: #202020;
+  background-color: #005858;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
 body {
   background-image: url(math_background.png);
-  color: #333;
+  color: #FF7400;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -16,12 +16,12 @@ body {
 }
 
 main {
-  background-color: black;
+  background-color: #277676;
 }
 
 footer {
-  color: red;
-  background-color: #202020;
+  color: #9F5C24;
+  background-color: #005858;
 }
 
 p, ol, ul, td {
@@ -38,12 +38,11 @@ pre {
 }
 
 a {
-  color: red;
+  color: #FF8724;
   transition: color 1s;
-
   background-color: none;
   &:hover {
-    color: purple;
+    color: #FF943B;
     text-decoration: none;
     }
 }
@@ -112,12 +111,12 @@ text {
     font-size: 13px;
     font-weight: 600;
     line-height: 20px;
-    color: red;
+    color: #9F5C24;
     transition: color 1s;
 }
 
 .header-nav-link:hover{
-  color: purple;
+  color: #FF8F32;
   text-decoration: none;
 }
 
@@ -150,8 +149,45 @@ text {
 .no-padding{
   padding: 0;
 }
+
 .bg-white{
   background-color: white;
+}
+
+.icon {
+  border: 0;
+  background-color: transparent;
+  transition: all 0.5s;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 6px;
+}
+.icon:hover {
+  transform: scale(1.5, 1.5);
+  background-color: transparent;
+}
+.icon:focus:hover {
+  background-color: transparent;
+}
+.icon:active {
+  background-color: transparent;
+}
+.icon:active:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.icon:active:hover {
+  background-color: transparent;
+}
+
+.icon:focus {
+  background-color: transparent;
+}
+
+.alert {
+  clear: both;
+  margin: 10px;
 }
 
 #notice {

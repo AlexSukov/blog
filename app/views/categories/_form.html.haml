@@ -9,7 +9,7 @@
           %li= message
   .form-group
     = f.label :Название_категории
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control', placeholder: 'Допускается не более 25 символов', maxlength: '25'
   .form-group
     = f.label :Изображение_категории
     = f.file_field :image, class: 'form-control'
