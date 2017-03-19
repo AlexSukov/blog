@@ -6,7 +6,7 @@ header {
 
 body {
   background-image: url(math_background.png);
-  color: #FF7400;
+  color: #565695;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -16,11 +16,11 @@ body {
 }
 
 main {
-  background-color: #277676;
+  background-color: #E7FEFF;
 }
 
 footer {
-  color: #9F5C24;
+  color: #FFFFFF;
   background-color: #005858;
 }
 
@@ -38,13 +38,16 @@ pre {
 }
 
 a {
-  color: #FF8724;
+  color: red;
   transition: color 1s;
-  background-color: none;
   &:hover {
-    color: #FF943B;
+    color: #565695;
     text-decoration: none;
     }
+  &:active {
+    color: #565695;
+    text-decoration: none;
+  }
 }
 
 th {
@@ -75,10 +78,23 @@ text {
 
 .head {
   //background: url(background.jpg);
-  background-color: #277676;
-  color: white;
+  background-color: #008D94;
   clear: both;
-  h1 {margin: 0;}
+  h1 {
+  margin: 0;
+  padding: 10px;
+  a {
+    color: white;
+    &:hover{
+      color: #CBFDFF;
+      text-decoration: none;
+    }
+    &:active{
+      color: #CBFDFF;
+      text-decoration: none;
+    }
+  }
+  }
 }
 
 .bg-transparent {
@@ -111,12 +127,12 @@ text {
     font-size: 13px;
     font-weight: 600;
     line-height: 20px;
-    color: #9F5C24;
+    color: #FFFFFF;
     transition: color 1s;
 }
 
 .header-nav-link:hover{
-  color: #FF8F32;
+  color: #008D94;
   text-decoration: none;
 }
 
@@ -188,6 +204,26 @@ text {
 .alert {
   clear: both;
   margin: 10px;
+}
+
+.svg-block {
+  width: 100%;
+  height: 100%;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.btn-my {
+  background-color: #008D94;
+  border-color: #008D94;
+  color: white;
+  &:hover{
+    color: white;
+    background-color: #00484B;
+    border-color: #008D94;
+  }
 }
 
 #notice {
