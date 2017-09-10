@@ -1,26 +1,27 @@
 header {
-  background-color: #202020;
+  background-color: #005858;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
 body {
-  background-color: white;
-  color: #333;
+  background-image: url(math_background.png);
+  color: #565695;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 main {
-  background-color: black;
+  background-color: #E7FEFF;
 }
 
 footer {
-  color: red;
-  background-color: #202020;
+  color: #FFFFFF;
+  background-color: #005858;
 }
 
 p, ol, ul, td {
@@ -39,12 +40,14 @@ pre {
 a {
   color: red;
   transition: color 1s;
-
-  background-color: none;
   &:hover {
-    color: purple;
+    color: #565695;
     text-decoration: none;
     }
+  &:active {
+    color: #565695;
+    text-decoration: none;
+  }
 }
 
 th {
@@ -73,6 +76,41 @@ text {
   font-size: 5rem;
 }
 
+.header-image{
+  float: left;
+  height: 114%;
+}
+
+.head {
+  //background: url(background.jpg);
+  background-color: #008D94;
+  clear: both;
+  height: 300px;
+  h1 {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  top: 35%;
+  a {
+    color: white;
+    &:hover{
+      color: #CBFDFF;
+      text-decoration: none;
+    }
+    &:active{
+      color: #CBFDFF;
+      text-decoration: none;
+    }
+  }
+  }
+}
+
+.bg-transparent {
+  background-image: url(math_layout.png);
+  height: 100px;
+}
+
 .black {
   fill: black;
 }
@@ -98,12 +136,12 @@ text {
     font-size: 13px;
     font-weight: 600;
     line-height: 20px;
-    color: red;
+    color: #FFFFFF;
     transition: color 1s;
 }
 
 .header-nav-link:hover{
-  color: purple;
+  color: #008D94;
   text-decoration: none;
 }
 
@@ -136,8 +174,65 @@ text {
 .no-padding{
   padding: 0;
 }
+
 .bg-white{
   background-color: white;
+}
+
+.icon {
+  border: 0;
+  background-color: transparent;
+  transition: all 0.5s;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 6px;
+}
+.icon:hover {
+  transform: scale(1.5, 1.5);
+  background-color: transparent;
+}
+.icon:focus:hover {
+  background-color: transparent;
+}
+.icon:active {
+  background-color: transparent;
+}
+.icon:active:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.icon:active:hover {
+  background-color: transparent;
+}
+
+.icon:focus {
+  background-color: transparent;
+}
+
+.alert {
+  clear: both;
+  margin: 10px;
+}
+
+.svg-block {
+  width: 100%;
+  height: 100%;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.btn-my {
+  background-color: #008D94;
+  border-color: #008D94;
+  color: white;
+  &:hover{
+    color: white;
+    background-color: #00484B;
+    border-color: #008D94;
+  }
 }
 
 #notice {

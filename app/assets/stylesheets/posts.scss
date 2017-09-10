@@ -13,7 +13,7 @@ table.table.post {
   }
   td.time {
     font-size: 1rem;
-    color: blue;
+    color: #09093B;
     padding: 0;
   }
   td.text {
@@ -23,53 +23,6 @@ table.table.post {
   td.body {
     text-align: justify;
     font-size: 1.5rem;
-  }
-}
-
-.head {
-  background: url(background.jpg);
-  color: white;
-}
-
-.plus {
-  background: url(plus.png);
-  width: 168px;
-  height: 168px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  transition: all 0.5s ease;
-}
-
-.plus:hover {
-  background: url(plus_hover.png);
-  width: 168px;
-  height: 168px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.svg-block {
-  width: 100%;
-  height: 100%;
-}
-
-.margin-bottom {
-  margin-bottom: 20px;
-}
-
-.read {
-  fill: white;
-  transition: all 1s;
-  text {
-    fill: black;
-  }
-  &:hover {
-    fill: purple;
-    text {
-      fill: white;
-    }
   }
 }
 
@@ -122,11 +75,11 @@ table.table.post {
 }
 
 a.list-group-item.active {
-  background-color: #5cb85c;
-  border-color: #5cb85c;
+  background-color: #008D94;
+  border-color: #008D94;
   &:hover{
-    background-color: #5cb85c;
-    border-color: #5cb85c;
+    background-color: #008D94;
+    border-color: #008D94;
   }
 }
 
@@ -138,37 +91,6 @@ a.list-group-item.active {
   &:active{
     outline: 0px;
   }
-}
-
-.icon {
-  border: 0;
-  background-color: transparent;
-  transition: all 0.5s;
-  text-decoration: none;
-  vertical-align: middle;
-  line-height: 6px;
-}
-.icon:hover {
-  transform: scale(1.5, 1.5);
-  background-color: transparent;
-}
-.icon:focus:hover {
-  background-color: transparent;
-}
-.icon:active {
-  background-color: transparent;
-}
-.icon:active:focus {
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.icon:active:hover {
-  background-color: transparent;
-}
-
-.icon:focus {
-  background-color: transparent;
 }
 
 .float-right {

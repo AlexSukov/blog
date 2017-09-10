@@ -1,11 +1,15 @@
-# encoding: utf-8
-
 class AvatarUploader < CarrierWave::Uploader::Base
-
+  include CarrierWave::MiniMagick
   storage :file
 
   def store_dir
     "avatars"
+  end
+
+  process resize_to_fill: [300,300]
+
+  version :thumbnail do
+    process resize_to_fill: [50,50]
   end
 
   def default_url

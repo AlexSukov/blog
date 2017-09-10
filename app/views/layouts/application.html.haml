@@ -6,8 +6,8 @@
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    %header.container
-      .row
+    .container.no-padding
+      %header
         %ul.list-unstyled.inline.pull-right.mb-0
           - if user_signed_in?
             %li.inline= link_to 'Профиль', user_profile_path(current_user.username), class: 'btn btn-link header-nav-link'
@@ -15,30 +15,29 @@
           -else
             %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
             %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
-      - if flash[:notice]
-        .alert.alert-success.fade.in
-          %button.close{'data-dismiss' => 'alert'} &times;
-          = flash[:notice]
-      - if flash[:error]
-        .alert.alert-danger.fade.in
-          %button.close{'data-dismiss' => 'alert'} &times;
-          = flash[:error]
-      - if flash[:alert]
-        .alert.alert-warning.fade.in
-          %button.close{'data-dismiss' => 'alert'} &times;
-          = flash[:alert]
-      .row.head
-        %h1= link_to 'БЛОГ', root_path
-        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: 'white'}
+        - if flash[:notice]
+          .alert.alert-success.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:notice]
+        - if flash[:error]
+          .alert.alert-danger.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:error]
+        - if flash[:alert]
+          .alert.alert-warning.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:alert]
+        .head
+          = image_tag 'header-image-3.png', class: 'header-image'
+          %h1= link_to 'ПЕРСОНАЛЬНЫЙ САЙТ УЧИТЕЛЯ МАТЕМАТИКИ', root_path
+      .bg-transparent
     %main.container
-      .row.no-padding
-        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: 'white'}
       = yield
     %footer.container
       .row
-        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: 'black'}
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#E7FEFF'}
       .site-footer
         %ul.list-unstyled.inline
           %li.inline
             \© 2016
-            %span= 'Autism, Inc.'
+            %span= 'Dev, Inc.'

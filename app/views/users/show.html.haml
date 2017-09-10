@@ -5,9 +5,9 @@
         %th{colspan: '2'}= @user.username
       %tr
         %td{colspan: '2'}
-          =image_tag(@user.avatar.url, size: '300', class: 'img-circle')
+          =image_tag(@user.avatar.url, class: 'img-circle')
       %tr
-        %td{colspan: '2'}= link_to 'Редактировать профиль', edit_user_registration_path, class: 'btn btn-link header-nav-link'
+        %td{colspan: '2'}= link_to 'Редактировать профиль', edit_user_registration_path
       - if @user.comments.any?
         %tr
           %td= 'Ваши комментарии'
