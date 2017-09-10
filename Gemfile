@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'wysiwyg-rails'
 gem 'pundit'
+gem 'mini_magick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

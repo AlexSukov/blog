@@ -76,13 +76,22 @@ text {
   font-size: 5rem;
 }
 
+.header-image{
+  float: left;
+  height: 114%;
+}
+
 .head {
   //background: url(background.jpg);
   background-color: #008D94;
   clear: both;
+  height: 300px;
   h1 {
   margin: 0;
   padding: 10px;
+  text-align: center;
+  position: relative;
+  top: 35%;
   a {
     color: white;
     &:hover{
