@@ -8,7 +8,8 @@
 .row
   - if policy(@posts).create?
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
-      = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+      .read-top-block
+        = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
       = link_to new_category_post_path(@category) do
         %table.table.post
           %tr
@@ -16,7 +17,8 @@
       = render partial: 'layouts/svg', locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
   - @posts.each do |post|
     .col-xs-12.col-sm-6.col-md-4.col-lg-4
-      = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+      .read-top-block
+        = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
       %table.table.post
         %tr
           %th.title{colspan: 3}= link_to truncate(post.title, length: 25), category_post_path(@category, post)
@@ -34,7 +36,7 @@
               =link_to category_post_path(@category, post), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
                 %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
       = link_to category_post_path(@category, post) do
-        #svg-container.margin-bottom
+        .svg-container-read.margin-bottom
           %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
             %polygon{points: '100,0 70,100 0,100 0,0'}
             %text{textLength: '60', lengthAdjust: 'spacingAndGlyphs', x: '5', y: '60'} Продолжить чтение

@@ -1,5 +1,4 @@
 header {
-  background-color: #005858;
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -10,18 +9,8 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 33px;
   margin-top: 0px;
   margin-bottom: 0px;
-}
-
-main {
-  background-color: #E7FEFF;
-}
-
-footer {
-  color: #FFFFFF;
-  background-color: #005858;
 }
 
 p, ol, ul, td {
@@ -77,8 +66,12 @@ text {
 }
 
 .header-image{
-  float: left;
   height: 114%;
+  position: absolute;
+  width: 30%;
+  object-fit: contain;
+  top: 0;
+  left: 0;
 }
 
 .head {
@@ -86,12 +79,15 @@ text {
   background-color: #008D94;
   clear: both;
   height: 300px;
+  position: relative;
   h1 {
   margin: 0;
   padding: 10px;
   text-align: center;
   position: relative;
   top: 35%;
+  width: 70%;
+  margin-left: 30%;
   a {
     color: white;
     &:hover{
@@ -116,7 +112,6 @@ text {
 }
 
 .registration_block {
-  margin-top:50px;
   border-color: black;
   border-width: thin;
   border-style: solid;;
@@ -145,6 +140,10 @@ text {
   text-decoration: none;
 }
 
+.header-nav-link:visited{
+  color: white;
+}
+
 .pull-right {
   float: right !important;
 }
@@ -156,9 +155,9 @@ text {
 
 .site-footer {
     position: relative;
-    padding-top: 40px;
+    padding-top: 80px;
     padding-bottom: 40px;
-    margin-top: 40px;
+    background-color: #005858;
 }
 
 .field_with_errors {
@@ -268,4 +267,190 @@ text {
 
 #header-content {
   text-align: right;
+}
+
+.footer-link {
+  color: white;
+  cursor: pointer;
+}
+.footer-link:hover{
+  color: white;
+}
+.footer-link:visited{
+  color: white;
+}
+.svg-container {
+  width: 100%;
+  height: 70px;
+}
+.header-list{
+  width: 100%;
+  text-align: right;
+  padding-right: 30px;
+  background-color: #005858;
+  display: inline-block;
+  margin: 0;
+}
+main .row{
+  background-color: #defeff;
+  margin: 0;
+}
+
+main.container, footer.container{
+  padding: 0;
+}
+
+main div.container{
+  background-color: #defeff;
+}
+
+.container{
+  width: 1280px;
+}
+
+div.field{
+  background-color: #defeff;
+  margin: 0;
+  padding: 20px;
+}
+
+footer.container.mobile-fixed{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.read-top-block .svg-container{
+  height: 50px;
+}
+
+.svg-container-read{
+  height: 50px;
+}
+.list-group{
+  margin-bottom: 0;
+  padding: 20px;
+  background-color: #defeff;
+}
+.registration_container{
+  width: 100%;
+  background-color: #defeff;
+}
+.checkbox{
+  margin-left: 20px;
+}
+.category-image{
+  height: 80%;
+  width: 80%;
+  object-fit: cover;
+}
+.comment-date{
+  font-size: 1rem;
+  float: right;
+}
+.comment_body{
+  margin: 20px 0;
+  display: inline-block;
+  background-color: transparent;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+  border: none;
+}
+.body_edit{
+  margin: 20px 0;
+  width: 50%;
+  min-height: 100px;
+}
+.comment_author{
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+.edit_comment, .delete_comment{
+  margin: 20px 0;
+}
+@media only screen and (max-width: 1024px){
+  .container{
+    width: 90%;
+    margin: 0 auto;
+  }
+  div.container, footer.container{
+    width: 100%;
+  }
+  .header-image{
+    width: 35%;
+  }
+  .head h1{
+    width: 65%;
+    margin-left: 35%;
+  }
+}
+
+@media only screen and (max-device-width:480px){
+  h1, .h1{
+    font-size: 56px;
+    line-height: 56px;
+  }
+  .head{
+    height: 450px;
+  }
+  .head h1{
+    top: 30%;
+    width: 55%;
+    margin-left: 45%;
+  }
+  .header-image{
+    width: 45%;
+  }
+  html{
+    font-size: 24px;
+  }
+  body, td {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+  .btn{
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+    padding: 20px;
+  }
+  .site-footer ul{
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .form-control{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    height: auto;
+  }
+  .form-group{
+    margin: 50px 0;
+  }
+  .read-top-block{
+    margin-top: 50px;
+  }
+  text{
+    font-size: 3.5rem;
+  }
+  table.table.post td.body > * {
+    font-size: 1.5rem;
+  }
+  .no-comment{
+    font-size: 1rem;
+  }
+  #comment_body{
+    min-height: 200px;
+  }
+  .users-list{
+      height: 200px;
+      line-height: 2rem;
+  }
+  .col-sm-6{
+    width:100%;
+  }
+  #q_title_cont{
+    padding: 20px;
+  }
+  .star img{
+    height: 50px;
+  }
 }

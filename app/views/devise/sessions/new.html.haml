@@ -1,17 +1,18 @@
-.registration_block
-  %h2= 'Авторизация'
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .form-group
-      = f.label :Имя_пользователя_или_электронная_почта,  class:'control-label'
-      = f.text_field :login, autofocus: true, class: 'form-control'
-    .form-group
-      = f.label :Пароль, class:'control-label'
-      = f.password_field :password, autocomplete: "off", class: 'form-control'
-    - if devise_mapping.rememberable?
-      .checkbox
-        = f.check_box :remember_me
-        = f.label :Запомнить_меня
-    = f.submit 'Вход', class: 'btn btn-primary'
-    %p
-      ='Ещё не зарегестрированы?'
-      = render "devise/shared/links"
+.registration_container
+  .registration_block
+    %h2= 'Авторизация'
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-group
+        = f.label :Имя_пользователя_или_электронная_почта,  class:'control-label'
+        = f.text_field :login, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :Пароль, class:'control-label'
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      - if devise_mapping.rememberable?
+        .checkbox
+          = f.check_box :remember_me
+          = f.label :Запомнить_меня
+      = f.submit 'Вход', class: 'btn btn-primary'
+      %p
+        ='Ещё не зарегестрированы?'
+        = render "devise/shared/links"

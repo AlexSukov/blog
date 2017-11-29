@@ -2,4 +2,4 @@
   %h1= 'Редактирование поста'
   = render 'form', post: @post
   = link_to 'Просмотр', category_post_path(@category, @post), class: 'btn btn-my mt-10'
-  = link_to 'Назад', category_posts_path(@category), class: 'btn btn-my mt-10'
+  = link_to 'Назад', category_path(@category), class: 'btn btn-my mt-10'

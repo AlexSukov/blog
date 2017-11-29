@@ -1,5 +1,6 @@
-%h1 Редактирование категории
-= render 'form', category: @category
-= link_to 'Просмотреть', @category
-|
-\#{link_to 'Назад', categories_path}
+.container
+  %h1 Редактирование категории
+  = render 'form', category: @category
+  = link_to 'Просмотреть', @category
+  |
+  \#{link_to 'Назад', categories_path}

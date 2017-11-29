@@ -23,10 +23,12 @@
   .list-group
     %a.list-group-item.active='Список всех пользователей:'
     - @users.each do |user|
-      %a.list-group-item
+      %a.list-group-item.users-list
         %input.user_id{value: user.id, hidden:true}
-        = user.email
-        = user.username
+        %span= user.email
+        %br
+        %span= user.username
+        %br
         = select(:user, :role, User.roles.keys.map {|role| [role.titleize,role]}, {selected: user.role})
         %button.btn.btn-default.delete_user.glyphicon.glyphicon-trash.icon.red.float-right
         %button.btn.btn-default.update_user.glyphicon.glyphicon-refresh.icon.float-right

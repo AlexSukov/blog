@@ -16,13 +16,14 @@
   background-size: contain;
   background-repeat: no-repeat;
   padding: 50px;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .text-center {
   margin-top: 5px;
   font-weight: bold;
   font-size: 1.75rem;
+  line-height: 1.75rem;
   margin-bottom: 5px;
 }
 
@@ -58,5 +59,11 @@
     text {
       fill: white;
     }
+  }
+}
+
+@media only screen and (max-device-width:480px){
+  .div-round, .div-round-plus {
+    padding: 12%;
   }
 }
