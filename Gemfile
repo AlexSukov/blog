@@ -42,6 +42,8 @@ gem 'carrierwave'
 gem 'wysiwyg-rails'
 gem 'pundit'
 gem 'mini_magick'
+gem 'fog'
+gem 'social-share-button'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

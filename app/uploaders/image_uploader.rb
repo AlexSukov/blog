@@ -2,10 +2,10 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  storage :file
+  storage :fog
 
   def store_dir
-    "category_images"
+    'category_images'
   end
 
   def default_url
@@ -21,7 +21,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   protected
-  
+
   def secure_token
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)

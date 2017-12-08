@@ -40,4 +40,5 @@
 //= require plugins/url.min.js
 //= require plugins/video.min.js
 //= require languages/ru.js
+//= require social-share-button
 //= require_tree .

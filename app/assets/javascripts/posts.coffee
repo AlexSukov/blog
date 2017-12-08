@@ -5,3 +5,6 @@ $ ->
   $('#wysiwyg').froalaEditor
     language: 'ru'
     imageOutputSize: true
+    imageUploadURL: 'https://liveanimations.org/upload_image'
+    fileUploadURL: 'https://liveanimations.org/upload_image'
+    videoUploadURL: 'https://liveanimations.org/upload_image'

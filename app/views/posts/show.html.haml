@@ -11,6 +11,8 @@
           %td.no-border= link_to 'Редактировать', edit_category_post_path(@category, @post)
         %td.no-border= link_to 'Назад', category_path(@category)
     %br
+    = social_share_button_tag(@post.title, desc: @post.description, image: @post.category.image)
+    %br
     -if current_user
       Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку'}
       %br/
