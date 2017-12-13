@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :authorize_post, except: [:index, :show, :new, :create]
   before_action :authorize_user, only: [:new, :create]
   after_action :verify_authorized, except: [:index, :show]
-  
+
   respond_to :json, :html
 
   def show
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :description).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :body, :image, :description).merge(user_id: current_user.id)
   end
 
 end

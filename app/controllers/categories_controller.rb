@@ -9,7 +9,9 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    respond_with(@categories)
+    @posts = Post.last(3)
+    @posts = @posts.sort_by{|m| m[:time_ago]}.reverse
+    respond_with(@categories, @posts)
   end
 
   def show

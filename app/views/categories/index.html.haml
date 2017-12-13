@@ -1,4 +1,21 @@
 .row
+  %h2.last= 'Последние посты'
+  - @posts.each do |post|
+    .col-xs-12.col-sm-6.col-md-4.col-lg-4
+      .div-round
+        .time= I18n.l post.created_at, format: :long
+        = link_to category_post_path(post.category, post) do
+          - if post.image?
+            = image_tag(post.image, class: 'center-block category-image')
+          - else
+            = image_tag(post.category.image, class: 'center-block category-image')
+        .text-center
+          = link_to truncate(post.title, length: 25, class: 'text-center'), category_post_path(post.category, post)
+
+= render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#defeff'}
+= render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: '#defeff'}
+.row
+  %h2.last= 'Категории'
   - if policy(@categories).create?
     .col-xs-12.col-sm-12.col-md-4.col-lg-4
       = link_to new_category_path do
