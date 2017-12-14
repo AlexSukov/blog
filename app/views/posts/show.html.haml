@@ -17,7 +17,7 @@
       = social_share_button_tag(@post.title, image: @post.category.image, desc: @post.description)
     %br
     -if current_user
-      Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку', cancel_off: asset_path("cancel-off.png"), star_off: asset_path("star-off.png")}
+      Оценка поста: #{rating_for @post, 'post_rating', enable_half: true, cancel_hint: 'Отменить эту оценку', star_path: '', cancel_off: asset_path("cancel-off.png"), star_off: asset_path("star-off.png"), cancel_on: asset_path("cancel-on.png"), star_half: asset_path("star-half.png"), star_on: asset_path("star-on.png")}
       %br/
     .list-group.comments
       %a.list-group-item.active
