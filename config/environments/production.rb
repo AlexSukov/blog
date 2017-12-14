@@ -12,6 +12,8 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  config.time_zone = 'Moscow'
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
