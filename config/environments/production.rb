@@ -10,6 +10,7 @@ Rails.application.configure do
     domain: 'math-4-all.herokuapp.com',
     password: Rails.application.secrets.secret_key_email_password,
     authentication: "plain",
+    enable_starttls_auto: true,
     tls: true
   }
 
