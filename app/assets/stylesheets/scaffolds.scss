@@ -6,11 +6,11 @@ header {
 body {
   background-image: url(math_background.png);
   color: #565695;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 18px;
   margin-top: 0px;
   margin-bottom: 0px;
+  font-family: 'Playfair Display', serif;
 }
 
 p, ol, ul, td {
@@ -63,6 +63,10 @@ svg {
 text {
   font-family: Verdana;
   font-size: 5rem;
+}
+
+h1, h2, h3{
+  font-family: 'Poiret One';
 }
 
 .header-image{
