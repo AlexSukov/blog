@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :comments
   mount_uploader :avatar, AvatarUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
   #overwrite Devise's find_for_database_authentication method
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup

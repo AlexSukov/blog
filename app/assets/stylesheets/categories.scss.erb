@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .div-round-plus {
-  background: url(circle.png);
+  background: url("<%= asset_path('circle.png') %> ");
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -11,7 +11,7 @@
 }
 
 .div-round {
-  background: url(circle.png);
+  background: url("<%= asset_path('circle.png') %> ");
   background-position: 50% 0%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -30,7 +30,7 @@
 .plus {
   margin-left: auto;
   margin-right: auto;
-  background: url(plus.png);
+  background: url("<%= asset_path('plus.png') %> ");
   width: 100px;
   height: 100px;
   background-size: contain;
@@ -40,7 +40,7 @@
 }
 
 .plus:hover {
-  background: url(plus_hover.png);
+  background: url("<%= asset_path('plus_hover.png') %> ");
   width: 120px;
   height: 120px;
   background-size: contain;

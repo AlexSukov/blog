@@ -4,9 +4,10 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: "smtp.mail.ru",
+    domain: Rails.root,
     port: 465,
     user_name: 'math4all@mail.ru',
-    password: 'n22a12t1969',
+    password: Rails.application.secrets.secret_key_email_password,
     authentication: "plain",
     enable_starttls_auto: true
   }
