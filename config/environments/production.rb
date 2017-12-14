@@ -5,12 +5,12 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: "smtp.mail.ru",
-    domain: 'mail.ru',
     port: 465,
     user_name: 'math4all@mail.ru',
+    domain: 'math-4-all.herokuapp.com',
     password: Rails.application.secrets.secret_key_email_password,
     authentication: "plain",
-    enable_starttls_auto: true
+    tls: true
   }
 
   config.time_zone = 'Moscow'
