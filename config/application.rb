@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.serve_static_assets = true
+
 module Blog
   class Application < Rails::Application
     # Use the responders controller from the responders gem
