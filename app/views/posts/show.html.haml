@@ -26,7 +26,10 @@
         - @post.comments.each do |comment|
           %a.list-group-item
             .comment_author
-              =image_tag(comment.user.avatar.thumbnail.url, class: 'img-circle')
+              - if comment.user.avatar?
+                =image_tag(comment.user.avatar.thumbnail.url, class: 'img-circle')
+              - else
+                =image_tag(comment.user.avatar.url, class: 'img-circle', size: 50)
               %span
                 = comment.user.username
               %span.comment-date
