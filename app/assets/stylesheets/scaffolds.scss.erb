@@ -3,6 +3,16 @@ header {
   padding-bottom: 0px;
 }
 
+.custom-wrapper{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.custom-block{
+  width: 33%;
+}
+
 body {
   background-image: url("<%= asset_path('math_background.png') %> ");
   color: #565695;
@@ -414,6 +424,10 @@ footer.container.mobile-fixed{
     width: 90%;
     margin: 0 auto;
   }
+
+  .custom-block{
+    width: 49%;
+  }
   div.container, footer.container{
     width: 100%;
   }
@@ -428,6 +442,15 @@ footer.container.mobile-fixed{
 }
 
 @media only screen and (max-device-width:480px){
+  .custom-wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .custom-block{
+    width: 100%;
+  }
   .header-list{
     text-align: center;
   }
