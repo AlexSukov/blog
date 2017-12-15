@@ -1,9 +1,9 @@
 .row
   %h2.last= 'Последние посты'
   - @posts.each do |post|
-    .col-xs-12.col-sm-6.col-md-4.col-lg-4
+    .col-xs-12.col-sm-12.col-md-4.col-lg-4
+      .time-index= I18n.l post.created_at, format: :long
       .div-round
-        .time= I18n.l post.created_at, format: :long
         = link_to category_post_path(post.category, post) do
           - if post.image?
             = image_tag(post.image, class: 'center-block category-image')

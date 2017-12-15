@@ -10,7 +10,19 @@ body {
   line-height: 18px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.slogan{
+  font-family: 'Poiret One';
+  font-size: 1.5rem;
+}
+
+.time-index{
+  font-family: 'Poiret One';
+  font-weight: bold;
+  text-align: center;
+  margin: 10px;
 }
 
 p, ol, ul, td {
@@ -313,7 +325,7 @@ main div.container{
 }
 
 .container{
-  max-width: 1280px;
+  width: 1280px;
 }
 
 div.field{
@@ -381,11 +393,22 @@ footer.container.mobile-fixed{
 .last{
   text-align: center;
   text-transform: uppercase;
+  font-weight: bold;
 }
 .time{
   text-align: center;
   margin-bottom: 10px;
 }
+.list-group-item{
+  border-color:#008D94;
+}
+@media only screen and (max-width: 1200px){
+  .container{
+    width: 1170px;
+  }
+}
+
+
 @media only screen and (max-width: 1024px){
   .container{
     width: 90%;
@@ -405,6 +428,9 @@ footer.container.mobile-fixed{
 }
 
 @media only screen and (max-device-width:480px){
+  .header-list{
+    text-align: center;
+  }
   h1, .h1{
     font-size: 56px;
     line-height: 56px;

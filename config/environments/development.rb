@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: Rails.root }
+  config.action_mailer.default_url_options = { host: 'math-4-all.herokuapp.com' }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-    address: "smtp.mail.ru",
-    domain: 'mail.ru',
-    port: 465,
-    user_name: 'math4all@mail.ru',
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: 'math4all.mailer@gmail.com',
+    domain: 'math-4-all.herokuapp.com',
     password: Rails.application.secrets.secret_key_email_password,
     authentication: "plain",
     enable_starttls_auto: true
