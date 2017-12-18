@@ -318,8 +318,15 @@ h1, h2, h3{
   text-align: right;
   padding-right: 30px;
   background-color: #005858;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
+}
+.header-list li{
+  margin: 1%;
+}
+.header-search{
+  width: 30%;
 }
 main .row{
   background-color: #defeff;
@@ -442,6 +449,18 @@ footer.container.mobile-fixed{
 }
 
 @media only screen and (max-device-width:480px){
+  .header-list{
+    flex-wrap: wrap;
+    padding-right: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-list li{
+    margin: 1%;
+  }
+  .header-search{
+    width: 90%;
+  }
   .custom-wrapper{
     display: flex;
     justify-content: space-around;

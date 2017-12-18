@@ -10,6 +10,12 @@
     .container.no-padding
       %header
         %ul.list-unstyled.header-list
+          %li.header-search
+            = search_form_for @post_search, url: search_index_path do |f|
+              .input-group
+                =f.text_field :title_cont, class: 'form-control', placeholder: 'Поиск по всем категориям'
+                %span.input-group-btn
+                  =f.submit "Поиск", class: 'btn btn-my'
           %li.inline= link_to 'Главная', root_path, class: 'btn btn-link header-nav-link'
           - if user_signed_in?
             %li.inline= link_to 'Профиль', user_profile_path(current_user.username), class: 'btn btn-link header-nav-link'

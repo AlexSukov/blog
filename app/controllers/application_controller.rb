@@ -2,6 +2,10 @@ require 'application_responder'
 
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_post_search
+  def set_post_search
+    @post_search = Post.search(params[:q])
+  end
   include Pundit
   self.responder = ApplicationResponder
   respond_to :html, :json
@@ -22,4 +26,5 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     redirect_to root_path, notice: 'You do not have permission to those resources.'
   end
+
 end
