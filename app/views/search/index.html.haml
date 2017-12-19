@@ -1,26 +1,31 @@
 .row
-  - @posts.each do |post|
-    .col-xs-12.col-sm-6.col-md-4.col-lg-4
-      .read-top-block
-        = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
-      %table.table.post
-        %tr
-          %th.title{colspan: 3}= link_to truncate(post.title, length: 25), category_post_path(post.category, post)
-        %tr
-          %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
-        %tr
-          %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
-        %tr
-          - if policy(post).edit?
-            %td.no-border
-              =link_to edit_category_post_path(post.category, post), class: 'btn btn-default icon' do
-                %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
-          - if policy(post).destroy?
-            %td.no-border
-              =link_to category_post_path(post.category, post), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
-                %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
-      = link_to category_post_path(post.category, post) do
-        .svg-container-read.margin-bottom
-          %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
-            %polygon{points: '100,0 70,100 0,100 0,0'}
-            %text{textLength: '60', lengthAdjust: 'spacingAndGlyphs', x: '5', y: '60'} Продолжить чтение
+  - if @posts.empty?
+    %h2.last.no-result= 'Извините, совпадений не найдено'
+  - else
+    %h2.last= 'Результаты поиска'
+    - @posts.each do |post|
+      .col-xs-12.col-sm-6.col-md-4.col-lg-4
+        .read-top-block
+          = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+
+        %table.table.post
+          %tr
+            %th.title{colspan: 3}= link_to truncate(post.title, length: 25), category_post_path(post.category, post)
+          %tr
+            %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
+          %tr
+            %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
+          %tr
+            - if policy(post).edit?
+              %td.no-border
+                =link_to edit_category_post_path(post.category, post), class: 'btn btn-default icon' do
+                  %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
+            - if policy(post).destroy?
+              %td.no-border
+                =link_to category_post_path(post.category, post), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
+                  %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
+        = link_to category_post_path(post.category, post) do
+          .svg-container-read.margin-bottom
+            %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
+              %polygon{points: '100,0 70,100 0,100 0,0'}
+              %text{textLength: '60', lengthAdjust: 'spacingAndGlyphs', x: '5', y: '60'} Продолжить чтение
