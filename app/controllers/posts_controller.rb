@@ -56,13 +56,13 @@ class PostsController < ApplicationController
   def set_aws
     options = {
       # The name of your bucket.
-      bucket: 'math4all',
+      bucket: 'math4all-froala',
 
       # S3 region. If you are using the default us-east-1, it this can be ignored.
-      region: 'eu-west-2',
+      region: 'eu-west-1',
 
       # The folder where to upload the images.
-      keyStart: 'froala_files',
+      keyStart: 'froala_files/',
 
       # File access.
       acl: 'public-read',

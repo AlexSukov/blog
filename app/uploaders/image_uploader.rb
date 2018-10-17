@@ -2,7 +2,7 @@
 
 class ImageUploader < CarrierWave::Uploader::Base
 
-  storage :aws
+  storage :fog
 
   def store_dir
     'category_images'
