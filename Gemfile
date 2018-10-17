@@ -42,8 +42,11 @@ gem 'carrierwave'
 gem 'wysiwyg-rails'
 gem 'pundit'
 gem 'mini_magick'
-gem 'fog'
+gem 'carrierwave-aws'
 gem 'social-share-button'
+gem 'mime-types'
+gem 'froala-editor-sdk'
+gem 'gon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
