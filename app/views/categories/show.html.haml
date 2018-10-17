@@ -1,0 +1,42 @@
+= search_form_for @search, url: category_path(params[:id]) do |f|
+  .field
+    =f.label :title_cont, "Название поста содержит"
+    .input-group
+      =f.text_field :title_cont, class: 'form-control'
+      %span.input-group-btn
+        =f.submit "Поиск", class: 'btn btn-default'
+.row
+  - if policy(@posts).create?
+    .col-xs-12.col-sm-6.col-md-4.col-lg-4
+      .read-top-block
+        = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+      = link_to new_category_post_path(@category) do
+        %table.table.post
+          %tr
+            %td.plus.no-border
+      = render partial: 'layouts/svg', locals: {points: '100,0 70,100 0,100 0,0', fill: 'white'}
+  - @posts.each do |post|
+    .col-xs-12.col-sm-6.col-md-4.col-lg-4
+      .read-top-block
+        = render partial: 'layouts/svg', locals: {points: '0,100 30,0 100,0 100,100', fill: 'white'}
+      %table.table.post
+        %tr
+          %th.title{colspan: 3}= link_to truncate(post.title, length: 25), category_post_path(@category, post)
+        %tr
+          %td.time.no-border{colspan: 3}= I18n.l post.created_at, format: :long
+        %tr
+          %td.text.no-border{colspan: 3}= truncate(post.description, length: 100)
+        %tr
+          - if policy(post).edit?
+            %td.no-border
+              =link_to edit_category_post_path(@category, post), class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
+          - if policy(post).destroy?
+            %td.no-border
+              =link_to category_post_path(@category, post), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-trash(aria-hidden= 'true')
+      = link_to category_post_path(@category, post) do
+        .svg-container-read.margin-bottom
+          %svg.read{viewbox: '0 0 100 100', preserveAspectRatio: 'none'}
+            %polygon{points: '100,0 70,100 0,100 0,0'}
+            %text{textLength: '60', lengthAdjust: 'spacingAndGlyphs', x: '5', y: '60'} Продолжить чтение

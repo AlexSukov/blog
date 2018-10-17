@@ -1,0 +1,56 @@
+!!!
+%html
+  %head
+    %title Персональный сайт учителя математики: Суковой Натальи Алексеевны
+    = csrf_meta_tags
+    = include_gon
+    = favicon_link_tag 'blackboard.ico'
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body
+    .container.no-padding
+      %header
+        %ul.list-unstyled.header-list
+          %li.header-search
+            = search_form_for @post_search, url: search_index_path do |f|
+              .input-group
+                =f.text_field :title_cont, class: 'form-control', placeholder: 'Поиск по всем категориям'
+                %span.input-group-btn
+                  =f.submit "Поиск", class: 'btn btn-my'
+          %li.inline= link_to 'Главная', root_path, class: 'btn btn-link header-nav-link'
+          - if user_signed_in?
+            %li.inline= link_to 'Профиль', user_profile_path(current_user.username), class: 'btn btn-link header-nav-link'
+            %li.inline= link_to 'Выход', destroy_user_session_path, method: :delete, class: 'btn btn-link header-nav-link'
+          -else
+            %li.inline= link_to 'Вход', new_user_session_path, class: 'btn btn-link header-nav-link'
+            %li.inline= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-link header-nav-link'
+        - if flash[:notice]
+          .alert.alert-success.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:notice]
+        - if flash[:error]
+          .alert.alert-danger.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:error]
+        - if flash[:alert]
+          .alert.alert-warning.fade.in.clearfix
+            %button.close{'data-dismiss' => 'alert'} &times;
+            = flash[:alert]
+        .head
+          = image_tag 'header-image.png', class: 'header-image'
+          .head-text-container
+            %h1= link_to "ПЕРСОНАЛЬНЫЙ САЙТ УЧИТЕЛЯ МАТЕМАТИКИ: <br><br> СУКОВОЙ НАТАЛЬИ АЛЕКСЕЕВНЫ".html_safe, root_path
+            %p
+              %q.slogan
+                %i Учитель - помощник в искании ребёнком путей к совершенству, в процессе его пробуждений и становления личности. Каждый день, каждый урок пусть ученик удивляется доброте учителя, его профессионализму и эрудиции.
+        = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#008D94'}
+    %main.container
+      = render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: '#defeff'}
+      = yield
+      = render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#defeff'}
+    %footer.container
+      = render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: '#005858'}
+      .site-footer
+        %ul.list-unstyled.inline
+          %li.inline
+            %a.footer-link{href: "mailto: math4all@mail.ru"}= "© #{Date.today.year} MATH4ALL, ALL RIGHTS RESERVED"

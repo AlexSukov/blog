@@ -1,0 +1,69 @@
+// Place all the styles related to the Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.div-round-plus {
+  background: url("<%= asset_path('circle.png') %> ");
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 50px;
+  margin-top: 70px;
+}
+
+.div-round {
+  background: url("<%= asset_path('circle.png') %> ");
+  background-position: 50% 0%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 50px;
+  margin: 20px 0;
+}
+
+.text-center {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  margin-bottom: 5px;
+}
+
+.plus {
+  margin-left: auto;
+  margin-right: auto;
+  background: url("<%= asset_path('plus.png') %> ");
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  transition: all 0.5s ease;
+}
+
+.plus:hover {
+  background: url("<%= asset_path('plus_hover.png') %> ");
+  width: 120px;
+  height: 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.read {
+  fill: white;
+  transition: all 1s;
+  text {
+    fill: black;
+  }
+  &:hover {
+    fill: #008D94;
+    text {
+      fill: white;
+    }
+  }
+}
+
+@media only screen and (max-device-width:480px){
+  .div-round, .div-round-plus {
+    padding: 12%;
+  }
+}

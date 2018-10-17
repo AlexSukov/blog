@@ -1,5 +1,19 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: 'math-4-all.herokuapp.com' }
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    user_name: 'math4all.mailer@gmail.com',
+    domain: 'math-4-all.herokuapp.com',
+    password: Rails.application.secrets.secret_key_email_password,
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
+
+  config.time_zone = 'Moscow'
 
   # Code is not reloaded between requests.
   config.cache_classes = true

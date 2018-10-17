@@ -1,0 +1,38 @@
+.registration_container
+  .registration_block
+    %h2= "Редактировать"
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f|
+      = devise_error_messages!
+      .form-group
+        = f.label :Имя_пользователя, class:'control-label'
+        = f.text_field :username, autofocus: true, class: 'form-control'
+        = f.label :Электронная_почта, class: 'control-label'
+        = f.email_field :email, class: 'form-control'
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .form-group
+        = f.label :Новый_пароль, class: 'control-label'
+        %i (оставьте поле пустым, если не хотите менять пароль)
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+        - if @minimum_password_length
+          %em
+            = @minimum_password_length
+            знаков минимум
+      .form-group
+        = f.label :Подтверждение_пароля, class: 'control-label'
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+      .form-group
+        = f.label :Текущий_пароль, class: 'control-label'
+        %i (для применения изменений)
+        = f.password_field :current_password, autocomplete: "off", class: 'form-control'
+      = image_tag(current_user.avatar.url, class: 'img-circle')
+      .form-group
+        = f.label :Новый_аватар, class: 'control-label'
+        = f.file_field :avatar, class: 'form-control'
+      .form-group
+        = f.submit 'Обновить',  class: 'btn btn-primary'
+    %h3= 'Удалить мой аккаунт'
+    %p
+      Чем-то недовольны? #{button_to "Удалить", registration_path(resource_name), data: { confirm: 'Вы уверены?' }, method: :delete, class: 'btn btn-default'}
+    = link_to 'Назад', :back,  class: 'btn btn-primary'

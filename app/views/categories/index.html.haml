@@ -1,0 +1,39 @@
+.row
+  %h2.last= 'Последние посты'
+  .custom-wrapper
+    - @posts.each do |post|
+      .custom-block
+        .time-index= I18n.l post.created_at, format: :long
+        .div-round
+          = link_to category_post_path(post.category, post) do
+            - if post.image?
+              = image_tag(post.image, class: 'center-block category-image')
+            - else
+              = image_tag(post.category.image, class: 'center-block category-image')
+          .text-center
+            = link_to truncate(post.title, length: 25, class: 'text-center'), category_post_path(post.category, post)
+
+= render partial: 'layouts/svg', locals: {points: '0,100 100,0 0,0', fill: '#defeff'}
+= render partial: 'layouts/svg', locals: {points: '0,100 100,0 100,100', fill: '#defeff'}
+.row
+  %h2.last= 'Категории'
+  .custom-wrapper
+    - if policy(@categories).create?
+      .custom-block
+        = link_to new_category_path do
+          .div-round-plus
+            .plus.no-border
+    - @categories.each do |category|
+      .custom-block
+        .div-round
+          = link_to category do
+            = image_tag(category.image, class: 'center-block category-image')
+          .text-center
+            = link_to truncate(category.title, length: 25, class: 'text-center'), category
+            - if policy(category).edit?
+              %br
+              =link_to edit_category_path(category), class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-pencil(aria-hidden= 'true')
+            - if policy(category).destroy?
+              =link_to category, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default icon' do
+                %span.glyphicon.glyphicon-trash(aria-hidden= 'true')

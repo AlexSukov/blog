@@ -1,0 +1,4 @@
+.container
+  %h1= 'Новый пост'
+  = render 'form', post: @post
+  = link_to 'Назад', category_path(@category), class: 'btn btn-primary mt-10'
